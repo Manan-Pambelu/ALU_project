@@ -1,35 +1,25 @@
-timescale 1ns / 1ps
+`timescale 1ns / 1ps
 
 `default_nettype none
 
 module Design1 #(parameter N=8)(CLK,RST,IN_VALID,MODE,OPA,OPB,CMD,CE,CIN,ERR,RES,OFLOW,COUT,G,L,E);
 input wire CLK,RST,MODE,CE,CIN;
-input wire [N:0]OPA,OPB;
+input wire [N-1:0]OPA,OPB;
 input wire [1:0]IN_VALID;
 input wire [3:0]CMD;
 output reg ERR,OFLOW,COUT,G,L,E;
-output reg [2*N:0]RES;
+output reg [2*N-1:0]RES;
 
-reg count;
+
+
+wire signed [N-1:0]sOPA = OPA;
+wire signed [N-1:0]sOPB = OPB;
+
+wire [N-1:0] s_add = sOPA + sOPB;
+wire [N-1:0] s_sub = sOPA - sOPB;
+
 reg [N:0]tempA,tempB;
-
-
-
- always @(*) 
-    begin
-    tempA = 0;
-    tempB = 0;
-    case (CMD)
-        4'd9: begin
-            tempA = OPA + 1;
-            tempB = OPB + 1;
-            end
-        4'd10: begin
-            tempA = OPA << 1;
-            tempB = OPB;
-            end
-    endcase
-end
+reg [1:0]count=0;
 
 
 always @(posedge CLK or posedge RST)
@@ -42,32 +32,39 @@ begin
  G<=0;
  L<=0;
  E<=0;
- count<=0;
 end
 
-  else if(MODE)
+  else if(CE)
+  begin
+  
+  G<=0; L<=0; E<=0;
+  OFLOW<=0;
+  COUT<=0;
+  ERR<=0;
+  
+  if(MODE) //Arithmrtic
    begin
        case(CMD)
             4'd0: begin
                  if(IN_VALID==2'b11)
                     begin
-                     {COUT,RES[N-1:0] <= OPA+OPB; 
+                    {COUT,RES[N-1:0]}<=OPA+OPB;
                     end
                     
                   else 
                     begin
-                     ERR<=1;
                      RES<=0;
+                     COUT<=0;
                     end
                    end
                    
             4'd1:begin
                   if(IN_VALID==2'b11)
-                    OFLOW<=0;
                   begin
+                    OFLOW<=0;
                     if(OPB>OPA)
                     begin
-                     RES[N-1:0]<=OPA-OPB;
+                       RES[N-1:0]<=OPA-OPB;
                        OFLOW<=1;
                     end
                     else
@@ -75,8 +72,7 @@ end
                   end
                   
                   else
-                  begin
-                     ERR<=1;
+                  begin 
                      RES<=0;
                      OFLOW<=0;
                   end
@@ -85,31 +81,37 @@ end
             4'd2:begin
                   if(IN_VALID==2'b11)
                   begin
-                   {COUT,RES[N-1:0}<=OPA+OPB+CIN;
-                  
+                    {COUT,RES[N-1:0]}<=OPA+OPB+CIN;
                   end
                   
                   else 
                      begin
-                     ERR<=1;
                      RES<=0;
+                     COUT<=0;
                      end  
                   end
                   
             4'd3:begin
                   if(IN_VALID==2'b11)
                   begin
-                   RES[N-1:0]=OPA-OPB-CIN;
-                   if((OPB+CIN)>OPA)
+                    RES[N-1:0]<=OPA-OPB-CIN;
+                    if((OPB+CIN)>OPA)
                     begin
                       OFLOW<=1;
-                     end 
+                      COUT<=1;
+                    end
+                    else
+                    begin
+                      OFLOW<=0;
+                      COUT<=0;
+                    end
                   end
              
                   else 
                      begin
-                     ERR<=1;
                      RES<=0;
+                     OFLOW<=0;
+                     COUT<=0;
                      end  
                   end
                   
@@ -121,7 +123,6 @@ end
                   
                   else 
                      begin
-                     ERR<=1;
                      RES<=0;
                      end  
                   end
@@ -134,7 +135,6 @@ end
                   
                   else 
                      begin
-                     ERR<=1;
                      RES<=0;
                      end  
                   end
@@ -148,7 +148,6 @@ end
                   else 
                      begin
                      RES<=0;
-                     ERR<=1;
                      end  
                   end
                   
@@ -161,71 +160,98 @@ end
                   else 
                      begin
                      RES<=0;
-                     ERR<=1;
                      end  
                   end
                   
              4'd8:begin
                   if(IN_VALID==2'b11)
                   begin
+                    G<=0; L<=0; E<=0;
                     if(OPA>OPB)
-                      G=1;
+                      G<=1;
                     else if(OPA<OPB)
-                      L=1;
+                      L<=1;
                     else 
-                      E=1;
+                      E<=1;
                   end
                 
-                   else
-                      begin
-                         ERR<=1;
-                         RES<=0;
-                      end
+                  else
+                  begin
+                    G<=0; L<=0; E<=0;
+                  end
                 end
                   
              4'd9:begin
                    if(IN_VALID==2'b11)
                    begin
-                    RES[N-1:0]<=tempA*tempB;
-                   end
-               
-                   else
+                   if(count==0) 
+                   begin 
+                      count<=count+1;
+                     end
+                     
+                   else if(count==1)
+                   begin 
+                      tempA<=OPA+1;
+                      tempB<=OPB+1;
+                    end
+                    
+                    else if(count==2)
+                    begin
+                       RES<=tempA*tempB;
+                       count<=0;
+                    end
+                    
+                    else
+                       count<=0;
+                       end
+               else 
+                   begin
                       RES<=0;
                       ERR<=1;
+                   end
                    end      
                    
              4'd10:begin
                    if(IN_VALID==2'b11)
                    begin     
-                    RES[N-1:0]=tempA*OPB;
+                    RES<=tempA*tempB;
                    end        
                    
                    else 
+                   begin
                       RES<=0;
-                      ERR<=1;
+                   end
                    end
                   
-             4'd11:begin
-                   if(IN_VALID==2'b11)
-                   begin
-                   RES=$signed(OPA)+$signed(OPB);
-                   COUT=RES[8];
-                   G=(OPA>OPB);
-                   L=(OPA<OPB);
-                   E=(OPA==OPB);     
-                   end
-                   
-             4'd12:begin
-                   if(IN_VALID==2'b11)
-                   begin
-                   RES=$signed(OPA)-$signed(OPB);
-                   OFLOW=(OPA<OPB);
-                   G=(OPA>OPB);
-                   L=(OPA<OPB);
-                   E=(OPA==OPB);
-                   end
-                   
-                   end
+          4'd11	:begin	
+				if( IN_VALID == 2'b11)
+						begin
+							RES[N-1:0] <= s_add;
+							OFLOW = ( (OPA[N-1] == OPB[N-1]) && (s_add[N-1] != OPA[N-1]) );
+							end
+								else	
+								begin	
+								  ERR <= 1;	RES <= 0;	
+								 end
+			      end
+			      
+				4'd12	:	begin	
+								if( IN_VALID == 2'b11)
+									begin
+										RES[N-1:0] <= s_sub;
+										OFLOW = ( (OPA[N-1] != OPB[N-1]) && (s_sub[N-1] != OPA[N-1]) );
+									end
+								else	
+								begin	
+								 ERR <= 1;	
+								 RES <= 0;	
+								end
+							end
+							
+				default:begin
+				        RES<=0;
+				        ERR<=1;
+				        end
          endcase
     end
     
@@ -320,190 +346,78 @@ end
                  4'd12:begin
                      if(IN_VALID==2'b11)
                          begin
-                             if(|OPB[7:4]==0 && OPB[2:0]==3'b000)
-                               RES<=OPA; 
+                             ERR<=|OPB[7:4];
+                             if(OPB[2:0]==3'b000)
+                               RES[N-1:0]<=OPA; 
                                
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b000)
-                             begin
-                               RES<=OPA; 
-                               ERR<=1;
-                             end 
-                             
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b001)
-                             begin
-                               RES<={OPA[6:0],OPA[7]}; 
-                             end 
-                             
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b001)
-                             begin
-                               RES<={OPA[6:0],OPA[7]};           
-                               ERR<=1; 
-                             end 
-                             
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b010)
-                             begin
-                               RES<={OPA[5:0],OPA[7:6]}; 
-                             end 
-                             
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b010)
-                             begin
-                               RES<={OPA[5:0],OPA[7:6]};
-                               ERR<=1; 
-                             end 
-                             
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b011)
-                             begin
-                               RES<={OPA[4:0],OPA[7:5]}; 
-                             end 
-                             
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b011)
-                             begin
-                               RES<={OPA[4:0],OPA[7:5]}; 
-                               ERR<=1;
-                             end 
-                             
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b100)
-                             begin
-                               RES<={OPA[3:0],OPA[7:4]}; 
-                             end 
-                            
-                            else if(|OPB[7:4]==1 && OPB[2:0]==3'b100)
-                             begin
-                               RES<={OPA[3:0],OPA[7:4]}; 
-                               ERR<=1;
-                             end 
-                             
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b101)
-                             begin
-                               RES<={OPA[2:0],OPA[7:3]}; 
-                             end 
-                         
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b101)
-                             begin
-                               RES<={OPA[2:0],OPA[7:3]};
-                               ERR<=1; 
-                             end 
-                         
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b110)
-                             begin
-                               RES<={OPA[1:0],OPA[7:2]}; 
-                             end 
-                             
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b110)
-                             begin
-                               RES<={OPA[1:0],OPA[7:2]}; 
-                               ERR<=1;
-                             end 
-                             
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b111)
-                             begin
-                               RES<={OPA[0],OPA[7:1]}; 
-                             end 
-                             
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b111)
-                             begin
-                               RES<={OPA[0],OPA[7:1]};
-                               ERR<=1; 
-                             end 
+                             else if(OPB[2:0]==3'b001)
+                               RES[N-1:0]<={OPA[N-2:0],OPA[N-1]};
+                                
+                             else if(OPB[2:0]==3'b010)
+                               RES[N-1:0]<={OPA[N-3:0],OPA[N-1:N-2]};
+                                
+                             else if(OPB[2:0]==3'b011)
+                               RES[N-1:0]<={OPA[N-4:0],OPA[N-1:N-3]}; 
+                               
+                             else if(OPB[2:0]==3'b100)
+                               RES[N-1:0]<={OPA[N-5:0],OPA[N-1:N-4]};
+                                
+                             else if(OPB[2:0]==3'b101)
+                               RES[N-1:0]<={OPA[N-6:0],OPA[N-1:N-5]};
+                                
+                             else if(OPB[2:0]==3'b110)
+                               RES[N-1:0]<={OPA[N-7:0],OPA[N-1:N-6]};
+                                
+                             else if(OPB[2:0]==3'b111)
+                               RES[N-1:0]<={OPA[N-8:0],OPA[N-1:N-7]}; 
+                        end
+                      else
+                        begin
+                          RES<=0;
+                          ERR<=0;
                         end
                      end
                         
                    4'd13:begin
                      if(IN_VALID==2'b11)
                          begin
-                             if(|OPB[7:4]==0 && OPB[2:0]==3'b000)
-                               RES<=OPA; 
+                             ERR<=|OPB[7:4];
+                             if(OPB[2:0]==3'b000)
+                               RES[N-1:0]<=OPA; 
+                             else if(OPB[2:0]==3'b001)
+                               RES[N-1:0]<={OPA[0],OPA[N-1:1]};
+                                
+                             else if(OPB[2:0]==3'b010)
+                               RES[N-1:0]<={OPA[1:0],OPA[N-1:2]};
+                                
+                             else if(OPB[2:0]==3'b011)
+                               RES[N-1:0]<={OPA[2:0],OPA[N-1:3]};
+                                
+                             else if(OPB[2:0]==3'b100)
+                               RES[N-1:0]<={OPA[3:0],OPA[N-1:4]};
+                                
+                             else if(OPB[2:0]==3'b101)
+                               RES[N-1:0]<={OPA[4:0],OPA[N-1:5]};
+                                
+                             else if(OPB[2:0]==3'b110)
+                               RES[N-1:0]<={OPA[5:0],OPA[N-1:6]};
+                                
+                             else if(OPB[2:0]==3'b111)
+                               RES[N-1:0]<={OPA[6:0],OPA[N-1:7]}; 
                                
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b000)
-                             begin
-                               RES<=OPA; 
-                               ERR<=1;
-                             end 
-                             
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b001)
-                             begin
-                               RES<={OPA[0],OPA[7:1]}; 
-                             end 
-                             
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b001)
-                             begin
-                               RES<={OPA[0],OPA[7:1]};           
-                               ERR<=1; 
-                             end 
-                             
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b010)
-                             begin
-                               RES<={OPA[1:0],OPA[7:2]}; 
-                             end 
-                             
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b010)
-                             begin
-                               RES<={OPA[1:0],OPA[7:2]};
-                               ERR<=1; 
-                             end 
-                             
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b011)
-                             begin
-                               RES<={OPA[2:0],OPA[7:3]}; 
-                             end 
-                             
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b011)
-                             begin
-                               RES<={OPA[2:0],OPA[7:3]}; 
-                               ERR<=1;
-                             end 
-                             
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b100)
-                             begin
-                               RES<={OPA[3:0],OPA[7:4]}; 
-                             end 
-                            
-                            else if(|OPB[7:4]==1 && OPB[2:0]==3'b100)
-                             begin
-                               RES<={OPA[3:0],OPA[7:4]}; 
-                               ERR<=1;
-                             end 
-                             
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b101)
-                             begin
-                               RES<={OPA[4:0],OPA[7:5]}; 
-                             end 
-                         
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b101)
-                             begin
-                               RES<={OPA[4:0],OPA[7:5]};
-                               ERR<=1; 
-                             end 
-                         
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b110)
-                             begin
-                               RES<={OPA[5:0],OPA[7:6]}; 
-                             end 
-                             
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b110)
-                             begin
-                               RES<={OPA[5:0],OPA[7:6]}; 
-                               ERR<=1;
-                             end 
-                             
-                             else if(|OPB[7:4]==0 && OPB[2:0]==3'b111)
-                             begin
-                               RES<={OPA[6:0],OPA[7]}; 
-                             end 
-                             
-                             else if(|OPB[7:4]==1 && OPB[2:0]==3'b111)
-                             begin
-                               RES<={OPA[6:0],OPA[7]};
-                               ERR<=1; 
-                             end
-                             end
-                             end
+                        end
+                      else
+                        begin
+                          RES<=0;
+                          ERR<=0;
+                        end
+                     end
+
                   default:begin
                           RES<=0;
                           ERR<=1;
                           end
                             endcase
                         end
-                        
+                        end
                     endmodule
-
