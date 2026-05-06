@@ -1,5 +1,4 @@
 timescale 1ns / 1ps
-//mananmohan
 
 `default_nettype none
 
