@@ -216,7 +216,7 @@ end
                    if(IN_VALID==2'b11)
                    begin     
                     RES<=tempA*tempB;
-                   end       i 
+                   end    
                    
                    else 
                    begin
@@ -225,7 +225,7 @@ end
                    end
                   
                   4'd11	:begin	
-				if( IN_VALID == 2'b11)
+				 if( IN_VALID == 2'b11)
 						begin
 							RES[N-1:0] <= s_add;
 							OFLOW = ( (OPA[N-1] == OPB[N-1]) && (s_add[N-1] != OPA[N-1]) );
@@ -234,7 +234,7 @@ end
 								begin	
 								  ERR <= 1;	RES <= 0;	
 								 end
-			                                        end
+			                     end
 			      
 				4'd12:begin	
 				      if( IN_VALID == 2'b11)
