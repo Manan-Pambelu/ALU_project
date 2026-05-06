@@ -2,7 +2,7 @@ timescale 1ns / 1ps
 
 `default_nettype none
 
-module Design1 #(parameter N=4)(CLK,RST,IN_VALID,MODE,OPA,OPB,CMD,CE,CIN,ERR,RES,OFLOW,COUT,G,L,E);
+module Design1 #(parameter N=8)(CLK,RST,IN_VALID,MODE,OPA,OPB,CMD,CE,CIN,ERR,RES,OFLOW,COUT,G,L,E);
 input wire CLK,RST,MODE,CE,CIN;
 input wire [N:0]OPA,OPB;
 input wire [1:0]IN_VALID;
@@ -12,6 +12,24 @@ output reg [2*N:0]RES;
 
 reg count;
 reg [N:0]tempA,tempB;
+
+
+
+ always @(*) 
+    begin
+    tempA = 0;
+    tempB = 0;
+    case (CMD)
+        4'd9: begin
+            tempA = OPA + 1;
+            tempB = OPB + 1;
+            end
+        4'd10: begin
+            tempA = OPA << 1;
+            tempB = OPB;
+            end
+    endcase
+end
 
 
 always @(posedge CLK or posedge RST)
@@ -33,15 +51,13 @@ end
             4'd0: begin
                  if(IN_VALID==2'b11)
                     begin
-                    RES=OPA+OPB;
-                    COUT=RES[8];
+                     {COUT,RES[N-1:0] <= OPA+OPB; 
                     end
                     
                   else 
                     begin
                      ERR<=1;
                      RES<=0;
-                     COUT<=0;
                     end
                    end
                    
@@ -51,11 +67,11 @@ end
                   begin
                     if(OPB>OPA)
                     begin
-                       RES<=OPA-OPB;
+                     RES[N-1:0]<=OPA-OPB;
                        OFLOW<=1;
                     end
                     else
-                    RES<=OPA-OPB;
+                     RES[N-1:0]<=OPA-OPB;
                   end
                   
                   else
@@ -69,37 +85,38 @@ end
             4'd2:begin
                   if(IN_VALID==2'b11)
                   begin
-                    RES=OPA+OPB+CIN;
-                    COUT=RES[N];
+                   {COUT,RES[N-1:0}<=OPA+OPB+CIN;
+                  
                   end
                   
                   else 
                      begin
                      ERR<=1;
                      RES<=0;
-                     COUT<=0;
                      end  
                   end
                   
             4'd3:begin
                   if(IN_VALID==2'b11)
                   begin
-                    RES=OPA-OPB-CIN;
-                    COUT=RES[8];
+                   RES[N-1:0]=OPA-OPB-CIN;
+                   if((OPB+CIN)>OPA)
+                    begin
+                      OFLOW<=1;
+                     end 
                   end
-                  
+             
                   else 
                      begin
                      ERR<=1;
                      RES<=0;
-                     COUT<=0;
                      end  
                   end
                   
              4'd4:begin
                   if(IN_VALID==2'b01 || IN_VALID==2'b11)
                   begin
-                    RES=OPA+1;
+                    RES<=OPA+1;
                   end
                   
                   else 
@@ -112,7 +129,7 @@ end
               4'd5:begin
                   if(IN_VALID==2'b01 || IN_VALID==2'b11)
                   begin
-                    RES=OPA-1;
+                    RES<=OPA-1;
                   end
                   
                   else 
@@ -125,7 +142,7 @@ end
               4'd6:begin
                   if(IN_VALID==2'b10 || IN_VALID==2'b11)
                   begin
-                    RES=OPB+1;
+                    RES<=OPB+1;
                   end
                   
                   else 
@@ -138,7 +155,7 @@ end
              4'd7:begin
                   if(IN_VALID==2'b10 || IN_VALID==2'b11)
                   begin
-                    RES=OPB-1;
+                    RES<=OPB-1;
                   end
                   
                   else 
@@ -151,8 +168,6 @@ end
              4'd8:begin
                   if(IN_VALID==2'b11)
                   begin
-                    G=L=E=0;
-
                     if(OPA>OPB)
                       G=1;
                     else if(OPA<OPB)
@@ -160,14 +175,18 @@ end
                     else 
                       E=1;
                   end
-                  end
+                
+                   else
+                      begin
+                         ERR<=1;
+                         RES<=0;
+                      end
+                end
                   
              4'd9:begin
                    if(IN_VALID==2'b11)
                    begin
-                       tempA=OPA+1;
-                       tempB=OPB+1;
-                       RES=tempA*tempB;
+                    RES[N-1:0]<=tempA*tempB;
                    end
                
                    else
@@ -178,8 +197,7 @@ end
              4'd10:begin
                    if(IN_VALID==2'b11)
                    begin     
-                      tempA=OPA<<1;
-                      RES=tempA*OPB;
+                    RES[N-1:0]=tempA*OPB;
                    end        
                    
                    else 
