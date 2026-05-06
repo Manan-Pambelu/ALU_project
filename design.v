@@ -1,15 +1,15 @@
-`timescale 1ns / 1ps
+mescale 1ns / 1ps
 
 `default_nettype none
 
-module Design1 #(parameter N=8)(CLK,RST,IN_VALID,MODE,OPA,OPB,CMD,CE,CIN,ERR,RES,OFLOW,COUT,G,L,E);
+module Design1 #(parameter N=8)(CLK,RST,IN_VALID,MODE,OPA,OPB,CMD,CE,CIN,ERR,RES,OFLOW,COUT,G,L,E,count);
 input wire CLK,RST,MODE,CE,CIN;
 input wire [N-1:0]OPA,OPB;
 input wire [1:0]IN_VALID;
 input wire [3:0]CMD;
 output reg ERR,OFLOW,COUT,G,L,E;
 output reg [2*N-1:0]RES;
-
+output reg [1:0]count=0;
 
 
 wire signed [N-1:0]sOPA = OPA;
@@ -19,7 +19,7 @@ wire [N-1:0] s_add = sOPA + sOPB;
 wire [N-1:0] s_sub = sOPA - sOPB;
 
 reg [N:0]tempA,tempB;
-reg [1:0]count=0;
+
 
 
 always @(posedge CLK or posedge RST)
@@ -193,6 +193,7 @@ end
                    begin 
                       tempA<=OPA+1;
                       tempB<=OPB+1;
+                      count<=count+1;
                     end
                     
                     else if(count==2)
@@ -215,7 +216,7 @@ end
                    if(IN_VALID==2'b11)
                    begin     
                     RES<=tempA*tempB;
-                   end        
+                   end       i 
                    
                    else 
                    begin
@@ -223,24 +224,25 @@ end
                    end
                    end
                   
-          4'd11	:begin	
+                  4'd11	:begin	
 				if( IN_VALID == 2'b11)
 						begin
 							RES[N-1:0] <= s_add;
 							OFLOW = ( (OPA[N-1] == OPB[N-1]) && (s_add[N-1] != OPA[N-1]) );
-							end
+					         end
 								else	
 								begin	
 								  ERR <= 1;	RES <= 0;	
 								 end
-			      end
+			                                        end
 			      
-				4'd12	:	begin	
-								if( IN_VALID == 2'b11)
-									begin
-										RES[N-1:0] <= s_sub;
-										OFLOW = ( (OPA[N-1] != OPB[N-1]) && (s_sub[N-1] != OPA[N-1]) );
-									end
+				4'd12:begin	
+				      if( IN_VALID == 2'b11)
+						    begin
+							RES[N-1:0] <= s_sub;
+							OFLOW = ( (OPA[N-1] != OPB[N-1]) && (s_sub[N-1] != OPA[N-1]) );
+						      end
+
 								else	
 								begin	
 								 ERR <= 1;	
