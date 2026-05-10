@@ -23,7 +23,7 @@ module alu_testbench;
     reg cmp;
 
     // DUT instantiation
-    Eight_bit_ALU_rtl_design dut (
+    alu dut (
         .OPA(OPA),
         .OPB(OPB),
         .CIN(CIN),
@@ -32,7 +32,7 @@ module alu_testbench;
         .CMD(CMD),
         .CE(CE),
         .MODE(MODE),
-        .inp_valid(INP_VALID),
+        .INP_VALID(INP_VALID),
         .COUT(COUT_dut),
         .OFLOW(OFLOW_dut),
         .RES(RES_dut),
@@ -277,19 +277,41 @@ module alu_testbench;
             apply_test(8'd128, 8'd128, 4'b1000, "CMP (less)");
 
             // MUL_AB
-            apply_test(8'h03, 8'h04, 4'b1001, "MUL_AB");
-            apply_test(8'h00, 8'h05, 4'b1001, "MUL_AB");
-            apply_test(8'hFF, 8'hFF, 4'b1001, "MUL_AB");
+           // apply_test(8'h00, 8'h00, 4'b1001, "MUL_AB");
+            //apply_test(8'hAA, 8'hAA, 4'b1001, "MUL_AB");
+            //apply_test(8'h55, 8'h55, 4'b1001, "MUL_AB");
+            //apply_test(8'h80, 8'hF0, 4'b1001, "MUL_AB");
+            //apply_test(8'hA0, 8'hA0, 4'b1001, "MUL_AB");
+            //apply_test(8'h50, 8'h50, 4'b1001, "MUL_AB");
+            //apply_test(8'h0F, 8'hFF, 4'b1001, "MUL_AB");
+
+
 
             apply_test(8'h00, 8'h00, 4'b1001, "MUL_AB");
             apply_test(8'h01, 8'h01, 4'b1001, "MUL_AB");
+            apply_test(8'hFF, 8'h01, 4'b1001, "MUL_AB");
+            apply_test(8'h01, 8'hFF, 4'b1001, "MUL_AB");
             apply_test(8'h0F, 8'h0F, 4'b1001, "MUL_AB");
+            apply_test(8'hF0, 8'h0F, 4'b1001, "MUL_AB");
+            apply_test(8'hAA, 8'h55, 4'b1001, "MUL_AB");
+            apply_test(8'h55, 8'hAA, 4'b1001, "MUL_AB");
             apply_test(8'h7F, 8'h7F, 4'b1001, "MUL_AB");
+            apply_test(8'h80, 8'h80, 4'b1001, "MUL_AB");
             apply_test(8'hFF, 8'hFF, 4'b1001, "MUL_AB");
 
             // SHIFT_MUL
-            apply_test(8'h04, 8'h03, 4'b1010, "SHIFT_MUL");
-            apply_test(8'h00, 8'h05, 4'b1010, "SHIFT_MUL");
+
+            apply_test(8'h01, 8'h01, 4'b1010, "SHIFT_MUL"); 
+            apply_test(8'h03, 8'h01, 4'b1010, "SHIFT_MUL");
+            apply_test(8'h0F, 8'h01, 4'b1010, "SHIFT_MUL"); 
+            apply_test(8'h1F, 8'h01, 4'b1010, "SHIFT_MUL"); 
+            apply_test(8'h3F, 8'h01, 4'b1010, "SHIFT_MUL"); 
+            apply_test(8'h7F, 8'h01, 4'b1010, "SHIFT_MUL"); 
+            apply_test(8'hFF, 8'h01, 4'b1010, "SHIFT_MUL"); 
+            apply_test(8'h00, 8'h01, 4'b1010, "SHIFT_MUL"); 
+            apply_test(8'hFF, 8'hFE, 4'b1010, "SHIFT_MUL");
+            apply_test(8'h5F, 8'h55, 4'b1010, "SHIFT_MUL");
+            apply_test(8'hAA, 8'h01, 4'b1010, "SHIFT_MUL");
 
             // S_ADD
             apply_test(8'h10, 8'h20, 4'b1011, "S_ADD");
