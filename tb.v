@@ -18,6 +18,8 @@ module alu_testbench;
     integer fail_count = 0;
     integer test_count = 0;
 
+    reg dummy;
+
     // DUT instantiation
     Eight_bit_ALU_rtl_design dut (
         .OPA(OPA), .OPB(OPB), .CIN(CIN),
@@ -142,7 +144,7 @@ module alu_testbench;
             
             test_count = test_count + 1;
             
-            if (compare_outputs()) begin
+            if (compare_outputs(1'b0)) begin
                 $display("[PASS] %s: OPA=0x%h OPB=0x%h CMD=0x%h", 
                          test_name, a, b, cmd);
                 pass_count = pass_count + 1;
@@ -156,7 +158,8 @@ module alu_testbench;
     endtask
 
     // Compare DUT vs Reference
-    function compare_outputs();
+    function compare_outputs;
+    input dummy;
         begin
             compare_outputs = 1;
             
@@ -177,7 +180,8 @@ module alu_testbench;
     endfunction
 
     // Compare single bit (handle Z)
-    function compare_bit(input dut, ref);
+    function compare_bit;
+     input dut, ref;
         begin
             if (dut === ref)
                 compare_bit = 1;
