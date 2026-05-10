@@ -1,4 +1,4 @@
-timescale 1ns / 1ps
+`timescale 1ns / 1ps
 
 module alu #(parameter N = 4) (OPA, OPB, INP_VALID, CIN, CLK, RST, CMD, CE, MODE, COUT, OFLOW, RES, G, E, L, ERR);
 input  [N-1:0]  OPA, OPB;
