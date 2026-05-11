@@ -10,7 +10,7 @@ module alu_testbench;
     wire [15:0] RES_dut;
     wire COUT_dut, OFLOW_dut, G_dut, E_dut, L_dut, ERR_dut;
 
-    wire [16:0] RES_ref;        
+    wire [15:0] RES_ref;        
     wire COUT_ref, OFLOW_ref, G_ref, E_ref, L_ref, ERR_ref;
 
     integer pass_count = 0;
