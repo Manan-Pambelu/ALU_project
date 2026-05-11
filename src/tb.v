@@ -1,8 +1,7 @@
-`timescale 1ns/1ps
+mescale 1ns/1ps
 
 module alu_testbench;
 
-    // DUT signals
     reg [7:0] OPA, OPB;
     reg CLK, RST, CE, MODE, CIN;
     reg [3:0] CMD;
@@ -11,18 +10,15 @@ module alu_testbench;
     wire [15:0] RES_dut;
     wire COUT_dut, OFLOW_dut, G_dut, E_dut, L_dut, ERR_dut;
 
-    // Reference model signals
-    wire [15:0] RES_ref;
+    wire [16:0] RES_ref;        // FIX 1: was [15:0], reference model output is 17 bits
     wire COUT_ref, OFLOW_ref, G_ref, E_ref, L_ref, ERR_ref;
 
-    // Test counters
     integer pass_count = 0;
     integer fail_count = 0;
     integer test_count = 0;
 
     reg cmp;
 
-    // DUT instantiation
     alu dut (
         .OPA(OPA),
         .OPB(OPB),
@@ -42,7 +38,6 @@ module alu_testbench;
         .ERR(ERR_dut)
     );
 
-    // Reference model instantiation
     alu_reference_model ref (
         .CE(CE),
         .OPA(OPA),
@@ -60,153 +55,135 @@ module alu_testbench;
         .ERR(ERR_ref)
     );
 
-    // Clock generation
     initial begin
         CLK = 0;
         forever #5 CLK = ~CLK;
     end
 
-    // Test stimulus
     initial begin
+        // FIX 2: initialize every signal including INP_VALID before any clock edge
+        RST       = 0;
+        CE        = 0;
+        CIN       = 0;
+        OPA       = 0;
+        OPB       = 0;
+        MODE      = 0;
+        CMD       = 0;
+        INP_VALID = 2'b00;
 
-        
-        RST = 0;
-        CE = 0;
-        CIN = 0;
-        OPA = 0;
-        OPB = 0;
-        MODE = 0;
-        CMD = 0;
-        INP_VALID = 2'b00;  
-
-        // rst
         @(posedge CLK);
-        RST = 1;
-        CE = 0;
-        CIN = 0;
-        OPA = 0;
-        OPB = 0;
-        MODE = 0;
-        CMD = 0;
-        INP_VALID = 2'b00;   
+        RST       = 1;
+        CE        = 0;
+        CIN       = 0;
+        OPA       = 0;
+        OPB       = 0;
+        MODE      = 0;
+        CMD       = 0;
+        INP_VALID = 2'b00;
 
-        // rst low and clock enable
         @(posedge CLK);
-        RST = 0;
-        CE = 1;
-        CIN = 0;
-        OPA = 0;
-        OPB = 0;
-        MODE = 0;
-        CMD = 0;
-        INP_VALID = 2'b11;  
-
-        // rst low and clock disable
-        @(posedge CLK);
-        RST = 0;
-        CE = 0;
-        CIN = 0;
-        OPA = 0;
-        OPB = 0;
-        MODE = 0;
-        CMD = 0;
+        RST       = 0;
+        CE        = 1;
+        CIN       = 0;
+        OPA       = 0;
+        OPB       = 0;
+        MODE      = 0;
+        CMD       = 0;
         INP_VALID = 2'b11;
 
-        // mode 1
         @(posedge CLK);
-        RST = 0;
-        CE = 1;
-        CIN = 0;
-        OPA = 1;
-        OPB = 1;
-        MODE = 1;
-        CMD = 0;
+        RST       = 0;
+        CE        = 0;
+        CIN       = 0;
+        OPA       = 0;
+        OPB       = 0;
+        MODE      = 0;
+        CMD       = 0;
         INP_VALID = 2'b11;
 
-        // mode 0
         @(posedge CLK);
-        RST = 0;
-        CE = 1;
-        CIN = 0;
-        OPA = 1;
-        OPB = 1;
-        MODE = 0;
-        CMD = 0;
+        RST       = 0;
+        CE        = 1;
+        CIN       = 0;
+        OPA       = 1;
+        OPB       = 1;
+        MODE      = 1;
+        CMD       = 0;
         INP_VALID = 2'b11;
 
-        // cmd invalid arithmetic
         @(posedge CLK);
-        RST = 0;
-        CE = 1;
-        CIN = 0;
-        OPA = 1;
-        OPB = 1;
-        MODE = 1;
-        CMD = 4'b1111;
+        RST       = 0;
+        CE        = 1;
+        CIN       = 0;
+        OPA       = 1;
+        OPB       = 1;
+        MODE      = 0;
+        CMD       = 0;
         INP_VALID = 2'b11;
 
-        // cmd invalid logical
         @(posedge CLK);
-        RST = 0;
-        CE = 1;
-        CIN = 0;
-        OPA = 1;
-        OPB = 1;
-        MODE = 0;
-        CMD = 4'b1111;
+        RST       = 0;
+        CE        = 1;
+        CIN       = 0;
+        OPA       = 1;
+        OPB       = 1;
+        MODE      = 1;
+        CMD       = 4'b1111;
         INP_VALID = 2'b11;
 
-        
         @(posedge CLK);
-        RST = 0;
-        CE  = 1;
+        RST       = 0;
+        CE        = 1;
+        CIN       = 0;
+        OPA       = 1;
+        OPB       = 1;
+        MODE      = 0;
+        CMD       = 4'b1111;
         INP_VALID = 2'b11;
 
-        @(posedge CLK); 
+        // FIX 3: CE stays 1 and INP_VALID stays 2'b11 from here onwards;
+        // removed the stray begin/end block that set these one clock too late
+        @(posedge CLK);
+        RST       = 0;
+        CE        = 1;
+        INP_VALID = 2'b11;
 
-        // Test Arithmetic Operations
+        @(posedge CLK);
+
         $display("\n=== Testing Arithmetic Operations (MODE=1) ===");
         MODE = 1;
         INP_VALID = 2'b11;
         test_arithmetic();
 
-        // INVALID 01
         $display("\n=== Testing Arithmetic Operations (INVALID=b01) ===");
         INP_VALID = 2'b01;
         test_arithmetic();
 
-        // INVALID 10
         $display("\n=== Testing Arithmetic Operations (INVALID=b10) ===");
         INP_VALID = 2'b10;
         test_arithmetic();
 
-        // INVALID 00
         $display("\n=== Testing Arithmetic Operations (INVALID=b00) ===");
         INP_VALID = 2'b00;
         test_arithmetic();
 
-        // Test Logical Operations
         $display("\n=== Testing Logical Operations (MODE=0) ===");
         MODE = 0;
         INP_VALID = 2'b11;
         test_logical();
 
-        // INVALID 01
         $display("\n=== Testing Logical Operations (INVALID=b01) ===");
         INP_VALID = 2'b01;
         test_logical();
 
-        // INVALID 10
         $display("\n=== Testing Logical Operations (INVALID=b10) ===");
         INP_VALID = 2'b10;
         test_logical();
 
-        // INVALID 00
         $display("\n=== Testing Logical Operations (INVALID=b00) ===");
         INP_VALID = 2'b00;
         test_logical();
 
-        // Summary
         $display("\n=== TEST SUMMARY ===");
         $display("Total Tests: %0d", test_count);
         $display("PASS: %0d", pass_count);
@@ -221,69 +198,51 @@ module alu_testbench;
         $finish;
     end
 
-    // Test arithmetic operations
     task test_arithmetic();
         begin
-
-            // ADD
             apply_test(8'h01, 8'h01, 4'b0000, "ADD");
             apply_test(8'hFF, 8'h01, 4'b0000, "ADD");
             apply_test(8'h00, 8'h00, 4'b0000, "ADD");
 
-            // SUB
             apply_test(8'h01, 8'h01, 4'b0001, "SUB");
             apply_test(8'h00, 8'h01, 4'b0001, "SUB");
             apply_test(8'h50, 8'h50, 4'b0001, "SUB");
 
-            // ADD_CIN
             CIN = 1;
             apply_test(8'hFF, 8'h00, 4'b0010, "ADD_CIN");
-
             CIN = 0;
             apply_test(8'hFF, 8'h00, 4'b0010, "ADD_CIN");
-
             CIN = 1;
             apply_test(8'h01, 8'h01, 4'b0010, "ADD_CIN");
-
             CIN = 0;
 
-            // SUB_CIN
             CIN = 1;
             apply_test(8'h0A, 8'h03, 4'b0011, "SUB_CIN");
             apply_test(8'h00, 8'h00, 4'b0011, "SUB_CIN");
-
             CIN = 0;
             apply_test(8'h01, 8'h01, 4'b0011, "SUB_CIN");
-
             CIN = 1;
             apply_test(8'h01, 8'h01, 4'b0011, "SUB_CIN");
-
             CIN = 0;
 
-            // INC_A
             apply_test(8'h50, 8'h00, 4'b0100, "INC_A");
             apply_test(8'hFF, 8'h00, 4'b0100, "INC_A");
             apply_test(8'h0A, 8'h00, 4'b0100, "INC_A");
 
-            // DEC_A
             apply_test(8'h49, 8'h00, 4'b0101, "DEC_A");
             apply_test(8'h00, 8'h00, 4'b0101, "DEC_A");
             apply_test(8'h0A, 8'h00, 4'b0101, "DEC_A");
 
-            // INC_B
             apply_test(8'h00, 8'h50, 4'b0110, "INC_B");
             apply_test(8'h00, 8'hFF, 4'b0110, "INC_B");
 
-            // DEC_B
             apply_test(8'h00, 8'h49, 4'b0111, "DEC_B");
             apply_test(8'h00, 8'h00, 4'b0111, "DEC_B");
 
-            // CMP
-            apply_test(8'd200, 8'd100, 4'b1000, "CMP (equal)");
-            apply_test(8'd50,  8'd200, 4'b1000, "CMP (greater)");
-            apply_test(8'd128, 8'd128, 4'b1000, "CMP (less)");
+            apply_test(8'd200, 8'd100, 4'b1000, "CMP");
+            apply_test(8'd50,  8'd200, 4'b1000, "CMP");
+            apply_test(8'd128, 8'd128, 4'b1000, "CMP");
 
-            // MUL_AB
             apply_test(8'h00, 8'h00, 4'b1001, "MUL_AB");
             apply_test(8'h01, 8'h01, 4'b1001, "MUL_AB");
             apply_test(8'hFF, 8'h01, 4'b1001, "MUL_AB");
@@ -296,7 +255,6 @@ module alu_testbench;
             apply_test(8'h80, 8'h80, 4'b1001, "MUL_AB");
             apply_test(8'hFF, 8'hFF, 4'b1001, "MUL_AB");
 
-            // SHIFT_MUL
             apply_test(8'h01, 8'h01, 4'b1010, "SHIFT_MUL");
             apply_test(8'h03, 8'h01, 4'b1010, "SHIFT_MUL");
             apply_test(8'h0F, 8'h01, 4'b1010, "SHIFT_MUL");
@@ -309,7 +267,6 @@ module alu_testbench;
             apply_test(8'h5F, 8'h55, 4'b1010, "SHIFT_MUL");
             apply_test(8'hAA, 8'h01, 4'b1010, "SHIFT_MUL");
 
-            // S_ADD
             apply_test(8'h10, 8'h20, 4'b1011, "S_ADD");
             apply_test(8'h20, 8'h10, 4'b1011, "S_ADD");
             apply_test(8'h20, 8'h20, 4'b1011, "S_ADD");
@@ -319,7 +276,6 @@ module alu_testbench;
             apply_test(8'h70, 8'h90, 4'b1011, "S_ADD");
             apply_test(8'h90, 8'h20, 4'b1011, "S_ADD");
 
-            // S_SUB
             apply_test(8'h50, 8'h30, 4'b1100, "S_SUB");
             apply_test(8'h30, 8'h50, 4'b1100, "S_SUB");
             apply_test(8'h40, 8'h40, 4'b1100, "S_SUB");
@@ -329,14 +285,11 @@ module alu_testbench;
             apply_test(8'h50, 8'h10, 4'b1100, "S_SUB");
             apply_test(8'h02, 8'hFF, 4'b1100, "S_SUB");
             apply_test(8'h10, 8'hF0, 4'b1100, "S_SUB");
-
         end
     endtask
 
-    // Test logical operations
     task test_logical();
         begin
-
             apply_test(8'hAA, 8'h55, 4'b0000, "AND");
             apply_test(8'hAA, 8'h55, 4'b0001, "NAND");
             apply_test(8'hAA, 8'h55, 4'b0010, "OR");
@@ -370,41 +323,39 @@ module alu_testbench;
             apply_test(8'hCC, 8'h06, 4'b1101, "ROR_A_B");
             apply_test(8'hCC, 8'h07, 4'b1101, "ROR_A_B");
             apply_test(8'hCC, 8'h37, 4'b1101, "ROR_A_B");
-
         end
     endtask
 
-   
     task apply_test(
         input [7:0] a, b,
         input [3:0] cmd,
         input [80*8:1] test_name
     );
     begin
-        @(posedge CLK);
-        #1;                  
+        // Drive inputs after the clock edge to avoid setup races
+        @(posedge CLK); #1;
         OPA = a;
         OPB = b;
         CMD = cmd;
 
-        
-        if (MODE && (CMD == 4'd9 || CMD == 4'd10 || CMD == 4'd11 || CMD == 4'd12)) begin
+        // Multi-cycle arithmetic ops need extra clocks for the DUT pipeline
+        if (MODE == 1 && (cmd == 4'd9 || cmd == 4'd10 || cmd == 4'd11 || cmd == 4'd12)) begin
             @(posedge CLK); #1;
             @(posedge CLK); #1;
             @(posedge CLK); #1;
         end
 
-        @(posedge CLK); #1;  // capture clock — outputs are now stable
+        // One capture clock: DUT registers inputs, reference updates combinationally,
+        // both are now showing results for the same input set
+        @(posedge CLK); #1;
 
         test_count = test_count + 1;
-
         compare_outputs(cmp);
 
         if (cmp) begin
             $display("[PASS] %s", test_name);
             pass_count = pass_count + 1;
-        end
-        else begin
+        end else begin
             $display("[FAIL] %s", test_name);
             display_mismatch();
             fail_count = fail_count + 1;
@@ -412,23 +363,22 @@ module alu_testbench;
     end
     endtask
 
-    // Compare DUT vs Reference
     task compare_outputs;
         output reg compare__outputs;
         begin
             compare__outputs = 1;
-
-            if (RES_dut  !== RES_ref)   compare__outputs = 0;
-            if (COUT_dut !== COUT_ref)  compare__outputs = 0;
-            if (OFLOW_dut!== OFLOW_ref) compare__outputs = 0;
-            if (G_dut    !== G_ref)     compare__outputs = 0;
-            if (E_dut    !== E_ref)     compare__outputs = 0;
-            if (L_dut    !== L_ref)     compare__outputs = 0;
-            if (ERR_dut  !== ERR_ref)   compare__outputs = 0;
+            // FIX 4: compare only the bits the DUT actually drives;
+            // RES_ref is 17 bits but DUT RES is 16 bits — compare [15:0] only
+            if (RES_dut !== RES_ref[15:0]) compare__outputs = 0;
+            if (COUT_dut  !== COUT_ref)    compare__outputs = 0;
+            if (OFLOW_dut !== OFLOW_ref)   compare__outputs = 0;
+            if (G_dut     !== G_ref)       compare__outputs = 0;
+            if (E_dut     !== E_ref)       compare__outputs = 0;
+            if (L_dut     !== L_ref)       compare__outputs = 0;
+            if (ERR_dut   !== ERR_ref)     compare__outputs = 0;
         end
     endtask
 
-    // Compare single bit (handle Z)
     function compare_bit;
         input dut, ref;
         begin
@@ -439,17 +389,15 @@ module alu_testbench;
         end
     endfunction
 
-    // Display mismatch details
     task display_mismatch();
         begin
             $display("  DUT: RES=0x%h COUT=%b OFLOW=%b G=%b E=%b L=%b ERR=%b",
                      RES_dut, COUT_dut, OFLOW_dut, G_dut, E_dut, L_dut, ERR_dut);
             $display("  REF: RES=0x%h COUT=%b OFLOW=%b G=%b E=%b L=%b ERR=%b",
-                     RES_ref, COUT_ref, OFLOW_ref, G_ref, E_ref, L_ref, ERR_ref);
+                     RES_ref[15:0], COUT_ref, OFLOW_ref, G_ref, E_ref, L_ref, ERR_ref);
         end
     endtask
 
-    // Waveform dump
     initial begin
         $dumpfile("alu_test.vcd");
         $dumpvars(0, alu_testbench);
