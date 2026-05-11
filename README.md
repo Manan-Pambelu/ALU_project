@@ -1,3 +1,2 @@
-# HI
 # ALU
 -manan
