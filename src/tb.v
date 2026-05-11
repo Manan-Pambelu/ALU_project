@@ -10,7 +10,7 @@ module alu_testbench;
     wire [15:0] RES_dut;
     wire COUT_dut, OFLOW_dut, G_dut, E_dut, L_dut, ERR_dut;
 
-    wire [16:0] RES_ref;        // FIX 1: was [15:0], reference model output is 17 bits
+    wire [16:0] RES_ref;        
     wire COUT_ref, OFLOW_ref, G_ref, E_ref, L_ref, ERR_ref;
 
     integer pass_count = 0;
@@ -61,7 +61,7 @@ module alu_testbench;
     end
 
     initial begin
-        // FIX 2: initialize every signal including INP_VALID before any clock edge
+       
         RST       = 0;
         CE        = 0;
         CIN       = 0;
@@ -141,8 +141,7 @@ module alu_testbench;
         CMD       = 4'b1111;
         INP_VALID = 2'b11;
 
-        // FIX 3: CE stays 1 and INP_VALID stays 2'b11 from here onwards;
-        // removed the stray begin/end block that set these one clock too late
+        
         @(posedge CLK);
         RST       = 0;
         CE        = 1;
@@ -332,21 +331,20 @@ module alu_testbench;
         input [80*8:1] test_name
     );
     begin
-        // Drive inputs after the clock edge to avoid setup races
+        
         @(posedge CLK); #1;
         OPA = a;
         OPB = b;
         CMD = cmd;
 
-        // Multi-cycle arithmetic ops need extra clocks for the DUT pipeline
+       
         if (MODE == 1 && (cmd == 4'd9 || cmd == 4'd10 || cmd == 4'd11 || cmd == 4'd12)) begin
             @(posedge CLK); #1;
             @(posedge CLK); #1;
             @(posedge CLK); #1;
         end
 
-        // One capture clock: DUT registers inputs, reference updates combinationally,
-        // both are now showing results for the same input set
+        
         @(posedge CLK); #1;
 
         test_count = test_count + 1;
@@ -367,8 +365,7 @@ module alu_testbench;
         output reg compare__outputs;
         begin
             compare__outputs = 1;
-            // FIX 4: compare only the bits the DUT actually drives;
-            // RES_ref is 17 bits but DUT RES is 16 bits — compare [15:0] only
+            
             if (RES_dut !== RES_ref[15:0]) compare__outputs = 0;
             if (COUT_dut  !== COUT_ref)    compare__outputs = 0;
             if (OFLOW_dut !== OFLOW_ref)   compare__outputs = 0;
