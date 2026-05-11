@@ -384,15 +384,15 @@ module alu_testbench;
         end
     endtask
 
-    function compare_bit;
-        input dut, ref;
-        begin
-            if (dut === ref)
-                compare_bit = 1;
-            else
-                compare_bit = 0;
-        end
-    endfunction
+    // function compare_bit;
+    //     input dut, ref;
+    //     begin
+    //         if (dut === ref)
+    //             compare_bit = 1;
+    //         else
+    //             compare_bit = 0;
+    //     end
+    // endfunction
 
     task display_mismatch();
         begin
