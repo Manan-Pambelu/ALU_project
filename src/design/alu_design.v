@@ -2,7 +2,7 @@ timescale 1ns / 1ps
 
 `default_nettype none
 
-module Design1 #(parameter N=8)(CLK,RST,IN_VALID,MODE,OPA,OPB,CMD,CE,CIN,ERR,RES,OFLOW,COUT,G,L,E,count1,count2);
+module alu_design #(parameter N=8)(CLK,RST,IN_VALID,MODE,OPA,OPB,CMD,CE,CIN,ERR,RES,OFLOW,COUT,G,L,E,count1,count2);
 input wire CLK,RST,MODE,CE,CIN;
 input wire [N-1:0]OPA,OPB;
 input wire [1:0]IN_VALID;
