@@ -1,0 +1,85 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/fetools/work_area/frontend/Batch_11/Manan/ALU_project/src
+T_opt
+!s110 1778497080
+V^2i_EJ7?7UEVPAfankm]U0
+04 13 4 work alu_testbench fast 0
+=1-6805caf5892e-6a01b638-bdd20-1072a
+o-quiet -auto_acc_if_foreign -work work
+Z1 tCvgOpt 0
+n@_opt
+OE;O;10.6c;65
+valu
+Z2 !s110 1778497075
+!i10b 1
+!s100 h`@o0D]T:2hdK_9PPT>Aj2
+I<;HF9WMT15TmTTVQVcHfW2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1778482681
+8tdesign.v
+Ftdesign.v
+L0 3
+Z4 OE;L;10.6c;65
+r1
+!s85 0
+31
+Z5 !s108 1778497075.000000
+Z6 !s107 tb.v|reference.v|tdesign.v|
+Z7 !s90 +acc|+cover|-l|log_file.log|tdesign.v|reference.v|tb.v|
+!i113 0
+Z8 !s102 +cover
+Z9 o+acc +cover -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+valu_reference_model
+R2
+!i10b 1
+!s100 b4Y2mI9oo=OSSI8cYl3Zh2
+I36j8GHSU3jmYDZCIfS:G41
+R3
+R0
+w1778494234
+8reference.v
+Freference.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 0
+R8
+R9
+R1
+valu_testbench
+R2
+!i10b 1
+!s100 ]OSJJPzPTTVUCJP=^ICOS1
+Ife1:nRZ4Va84Omm?L8gJO0
+R3
+R0
+w1778497065
+8tb.v
+Ftb.v
+L0 3
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 0
+R8
+R9
+R1

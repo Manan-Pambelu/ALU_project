@@ -1,0 +1,600 @@
+var g_data = {
+b186:[{dummy:0},
+{anchor:'cvg187',items:[{z:'        if (MODE == 1 && (cmd == 4\'d9 || cmd == 4\'d10 || cmd == 4\'d11 || ...',f:'tb.v',l:'357',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (MODE == 1 && (cmd == 4\'d9 || cmd == 4\'d10 || cmd == 4\'d11 || ...',f:'tb.v',l:'357',h:'215',c:'g'}
+,{cr:'c',t:'A',z:'        if (MODE == 1 && (cmd == 4\'d9 || cmd == 4\'d10 || cmd == 4\'d11 || ...',f:'tb.v',l:'357',h:'280',c:'g'}
+]},
+{anchor:'cvg188',items:[{z:'        if (cmp) begin',f:'tb.v',l:'369',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (cmp) begin',f:'tb.v',l:'369',h:'104',c:'g'}
+,{cr:'c',t:'E',z:'        end else begin',f:'tb.v',l:'372',h:'391',c:'g'}
+]}],
+b191:[{dummy:0},
+{anchor:'cvg192',items:[{z:'            if (RES_dut !== RES_ref[15:0]) compare__outputs = 0;',f:'tb.v',l:'385',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (RES_dut !== RES_ref[15:0]) compare__outputs = 0;',f:'tb.v',l:'385',h:'117',c:'g'}
+,{cr:'c',t:'A',z:'            if (RES_dut !== RES_ref[15:0]) compare__outputs = 0;',f:'tb.v',l:'385',h:'378',c:'g'}
+]},
+{anchor:'cvg193',items:[{z:'            if (COUT_dut  !== COUT_ref)    compare__outputs = 0;',f:'tb.v',l:'386',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (COUT_dut  !== COUT_ref)    compare__outputs = 0;',f:'tb.v',l:'386',h:'6',c:'g'}
+,{cr:'c',t:'A',z:'            if (COUT_dut  !== COUT_ref)    compare__outputs = 0;',f:'tb.v',l:'386',h:'489',c:'g'}
+]},
+{anchor:'cvg194',items:[{z:'            if (OFLOW_dut !== OFLOW_ref)   compare__outputs = 0;',f:'tb.v',l:'387',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (OFLOW_dut !== OFLOW_ref)   compare__outputs = 0;',f:'tb.v',l:'387',h:'2',c:'g'}
+,{cr:'c',t:'A',z:'            if (OFLOW_dut !== OFLOW_ref)   compare__outputs = 0;',f:'tb.v',l:'387',h:'493',c:'g'}
+]},
+{anchor:'cvg195',items:[{z:'            if (G_dut     !== G_ref)       compare__outputs = 0;',f:'tb.v',l:'388',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (G_dut     !== G_ref)       compare__outputs = 0;',f:'tb.v',l:'388',h:'15',c:'g'}
+,{cr:'c',t:'A',z:'            if (G_dut     !== G_ref)       compare__outputs = 0;',f:'tb.v',l:'388',h:'480',c:'g'}
+]},
+{anchor:'cvg196',items:[{z:'            if (E_dut     !== E_ref)       compare__outputs = 0;',f:'tb.v',l:'389',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (E_dut     !== E_ref)       compare__outputs = 0;',f:'tb.v',l:'389',h:'3',c:'g'}
+,{cr:'c',t:'A',z:'            if (E_dut     !== E_ref)       compare__outputs = 0;',f:'tb.v',l:'389',h:'492',c:'g'}
+]},
+{anchor:'cvg197',items:[{z:'            if (L_dut     !== L_ref)       compare__outputs = 0;',f:'tb.v',l:'390',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (L_dut     !== L_ref)       compare__outputs = 0;',f:'tb.v',l:'390',h:'12',c:'g'}
+,{cr:'c',t:'A',z:'            if (L_dut     !== L_ref)       compare__outputs = 0;',f:'tb.v',l:'390',h:'483',c:'g'}
+]},
+{anchor:'cvg198',items:[{z:'            if (ERR_dut   !== ERR_ref)     compare__outputs = 0;',f:'tb.v',l:'391',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (ERR_dut   !== ERR_ref)     compare__outputs = 0;',f:'tb.v',l:'391',h:'361',c:'g'}
+,{cr:'c',t:'A',z:'            if (ERR_dut   !== ERR_ref)     compare__outputs = 0;',f:'tb.v',l:'391',h:'134',c:'g'}
+]}],
+b3:[{dummy:0},
+{anchor:'cvg201',items:[{z:'    if (CE) begin',f:'tdesign.v',l:'37',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'    if (CE) begin',f:'tdesign.v',l:'37',h:'470',c:'g'}
+,{cr:'c',t:'A',z:'    if (CE) begin',f:'tdesign.v',l:'37',h:'2',c:'g'}
+]},
+{anchor:'cvg202',items:[{z:'        if (INP_VALID[0]) OPA_1 = OPA;',f:'tdesign.v',l:'38',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (INP_VALID[0]) OPA_1 = OPA;',f:'tdesign.v',l:'38',h:'256',c:'g'}
+,{cr:'c',t:'A',z:'        if (INP_VALID[0]) OPA_1 = OPA;',f:'tdesign.v',l:'38',h:'214',c:'g'}
+]},
+{anchor:'cvg203',items:[{z:'        if (INP_VALID[1]) OPB_1 = OPB;',f:'tdesign.v',l:'39',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (INP_VALID[1]) OPB_1 = OPB;',f:'tdesign.v',l:'39',h:'188',c:'g'}
+,{cr:'c',t:'A',z:'        if (INP_VALID[1]) OPB_1 = OPB;',f:'tdesign.v',l:'39',h:'282',c:'g'}
+]},
+{anchor:'cvg204',items:[{z:'    if (RST) begin',f:'tdesign.v',l:'45',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'    if (RST) begin',f:'tdesign.v',l:'45',h:'2',c:'g'}
+,{cr:'c',t:'T',z:'    else if (CE) begin',f:'tdesign.v',l:'61',h:'1112',c:'g'}
+,{cr:'c',t:'A',z:'    if (RST) begin',f:'tdesign.v',l:'45',h:'2',c:'g'}
+]},
+{anchor:'cvg205',items:[{z:'        if (CMD == 4\'b1001 && MODE == 1\'b1) begin',f:'tdesign.v',l:'64',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (CMD == 4\'b1001 && MODE == 1\'b1) begin',f:'tdesign.v',l:'64',h:'325',c:'g'}
+,{cr:'c',t:'E',z:'        else begin',f:'tdesign.v',l:'68',h:'787',c:'g'}
+]},
+{anchor:'cvg206',items:[{z:'        if (MODE) begin',f:'tdesign.v',l:'73',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (MODE) begin',f:'tdesign.v',l:'73',h:'885',c:'g'}
+,{cr:'c',t:'E',z:'        else begin',f:'tdesign.v',l:'238',h:'227',c:'g'}
+]},
+{anchor:'cvg207',items:[{z:'            case (CMD)',f:'tdesign.v',l:'82',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                4\'b0000: begin',f:'tdesign.v',l:'84',h:'25',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0001: begin',f:'tdesign.v',l:'92',h:'25',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0010: begin',f:'tdesign.v',l:'100',h:'24',c:'g'}
+,{cr:'c',t:'T',z:'            4\'b0011: begin',f:'tdesign.v',l:'108',h:'33',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0100: begin',f:'tdesign.v',l:'116',h:'21',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0101: begin',f:'tdesign.v',l:'123',h:'30',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0110: begin',f:'tdesign.v',l:'132',h:'20',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0111: begin',f:'tdesign.v',l:'141',h:'20',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1000: begin',f:'tdesign.v',l:'150',h:'30',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1001: begin',f:'tdesign.v',l:'162',h:'325',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1010: begin',f:'tdesign.v',l:'173',h:'121',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1011: begin',f:'tdesign.v',l:'179',h:'107',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1100: begin',f:'tdesign.v',l:'202',h:'102',c:'g'}
+,{cr:'c',t:'T',z:'                default: begin',f:'tdesign.v',l:'225',h:'2',c:'g'}
+]},
+{anchor:'cvg208',items:[{z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'85',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'85',h:'7',c:'g'}
+,{cr:'c',t:'A',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'85',h:'18',c:'g'}
+]},
+{anchor:'cvg209',items:[{z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'93',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'93',h:'6',c:'g'}
+,{cr:'c',t:'A',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'93',h:'19',c:'g'}
+]},
+{anchor:'cvg210',items:[{z:'                if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'101',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'101',h:'6',c:'g'}
+,{cr:'c',t:'A',z:'                if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'101',h:'18',c:'g'}
+]},
+{anchor:'cvg211',items:[{z:'            if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'109',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'109',h:'8',c:'g'}
+,{cr:'c',t:'A',z:'            if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'109',h:'25',c:'g'}
+]},
+{anchor:'cvg212',items:[{z:'                    if ((INP_VALID == 2\'b11)||(INP_VALID == 2\'b01)) begin...',f:'tdesign.v',l:'117',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if ((INP_VALID == 2\'b11)||(INP_VALID == 2\'b01)) begin...',f:'tdesign.v',l:'117',h:'12',c:'g'}
+,{cr:'c',t:'A',z:'                    if ((INP_VALID == 2\'b11)||(INP_VALID == 2\'b01)) begin...',f:'tdesign.v',l:'117',h:'9',c:'g'}
+]},
+{anchor:'cvg213',items:[{z:'                    if ((INP_VALID == 2\'b11) || (INP_VALID == 2\'b01)) beg...',f:'tdesign.v',l:'124',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if ((INP_VALID == 2\'b11) || (INP_VALID == 2\'b01)) beg...',f:'tdesign.v',l:'124',h:'12',c:'g'}
+,{cr:'c',t:'E',z:'                    end else begin',f:'tdesign.v',l:'126',h:'18',c:'g'}
+]},
+{anchor:'cvg214',items:[{z:'                    if (INP_VALID == 2\'b10) begin',f:'tdesign.v',l:'133',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b10) begin',f:'tdesign.v',l:'133',h:'4',c:'g'}
+,{cr:'c',t:'E',z:'                    else begin ',f:'tdesign.v',l:'136',h:'16',c:'g'}
+]},
+{anchor:'cvg215',items:[{z:'                    if (INP_VALID == 2\'b10) begin',f:'tdesign.v',l:'142',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b10) begin',f:'tdesign.v',l:'142',h:'4',c:'g'}
+,{cr:'c',t:'E',z:'                    else begin ',f:'tdesign.v',l:'145',h:'16',c:'g'}
+]},
+{anchor:'cvg216',items:[{z:'                    if (OPA_1 == OPB_1) begin',f:'tdesign.v',l:'152',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (OPA_1 == OPB_1) begin',f:'tdesign.v',l:'152',h:'8',c:'g'}
+,{cr:'c',t:'T',z:'                    end else if (OPA_1 > OPB_1) begin',f:'tdesign.v',l:'154',h:'14',c:'g'}
+,{cr:'c',t:'E',z:'                    end else begin',f:'tdesign.v',l:'156',h:'8',c:'g'}
+]},
+{anchor:'cvg217',items:[{z:'                if (M2active && !mul_abort) begin',f:'tdesign.v',l:'163',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if (M2active && !mul_abort) begin',f:'tdesign.v',l:'163',h:'315',c:'g'}
+,{cr:'c',t:'E',z:'                end else begin',f:'tdesign.v',l:'166',h:'10',c:'g'}
+]},
+{anchor:'cvg218',items:[{z:'                    if (INP_VALID == 2\'b11)',f:'tdesign.v',l:'174',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b11)',f:'tdesign.v',l:'174',h:'52',c:'g'}
+,{cr:'c',t:'A',z:'                    if (INP_VALID == 2\'b11)',f:'tdesign.v',l:'174',h:'69',c:'g'}
+]},
+{anchor:'cvg219',items:[{z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'180',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'180',h:'50',c:'g'}
+,{cr:'c',t:'A',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'180',h:'57',c:'g'}
+]},
+{anchor:'cvg220',items:[{z:'                        if ($signed(OPA_1) > $signed(OPB_1)) ',f:'tdesign.v',l:'187',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                        if ($signed(OPA_1) > $signed(OPB_1)) ',f:'tdesign.v',l:'187',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                        else if ($signed(OPA_1) == $signed(OPB_1)) ',f:'tdesign.v',l:'191',h:'20',c:'g'}
+,{cr:'c',t:'E',z:'                        end else ',f:'tdesign.v',l:'194',h:'20',c:'g'}
+]},
+{anchor:'cvg221',items:[{z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'203',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'203',h:'44',c:'g'}
+,{cr:'c',t:'A',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'203',h:'58',c:'g'}
+]},
+{anchor:'cvg222',items:[{z:'                        if ($signed(OPA_1) > $signed(OPB_1)) ',f:'tdesign.v',l:'210',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                        if ($signed(OPA_1) > $signed(OPB_1)) ',f:'tdesign.v',l:'210',h:'24',c:'g'}
+,{cr:'c',t:'T',z:'                        else if ($signed(OPA_1) == $signed(OPB_1)) ',f:'tdesign.v',l:'214',h:'5',c:'g'}
+,{cr:'c',t:'E',z:'                        else ',f:'tdesign.v',l:'218',h:'15',c:'g'}
+]},
+{anchor:'cvg223',items:[{z:'            case (CMD)',f:'tdesign.v',l:'247',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                4\'b0000: RES <= {{N{1\'b0}}, OPA_1 & OPB_1};//AND',f:'tdesign.v',l:'248',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0001: RES <= {{N{1\'b0}}, ~(OPA_1 & OPB_1)};//NAND',f:'tdesign.v',l:'249',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0010: RES <= {{N{1\'b0}}, OPA_1 | OPB_1};//OR',f:'tdesign.v',l:'250',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0011: RES <= {{N{1\'b0}}, ~(OPA_1 | OPB_1)};//NOR',f:'tdesign.v',l:'251',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0100: RES <= {{N{1\'b0}}, OPA_1 ^ OPB_1};//XOR',f:'tdesign.v',l:'252',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0101: RES <= {{N{1\'b0}}, ~(OPA_1 ^ OPB_1)};//XNOR',f:'tdesign.v',l:'253',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0110: RES <= {{N{1\'b0}}, ~OPA_1};//NOT A',f:'tdesign.v',l:'254',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0111: RES <= {{N{1\'b0}}, ~OPB_1};//NOT B',f:'tdesign.v',l:'255',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1000: RES <= {{N{1\'b0}}, OPA_1 >> 1};//SHIFT RIGHT A',f:'tdesign.v',l:'256',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1001: RES <= {{N{1\'b0}}, OPA_1 << 1};//SHIFT LEFT A',f:'tdesign.v',l:'257',h:'7',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1010: RES <= {{N{1\'b0}}, OPB_1 >> 1};//SHIFT RIGHT B',f:'tdesign.v',l:'258',h:'8',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1011: RES <= {{N{1\'b0}}, OPB_1 << 1};//SHIFT LEFT B',f:'tdesign.v',l:'259',h:'7',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1100:begin',f:'tdesign.v',l:'262',h:'57',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1101:  begin',f:'tdesign.v',l:'279',h:'57',c:'g'}
+,{cr:'c',t:'T',z:'                default: begin',f:'tdesign.v',l:'295',h:'1',c:'g'}
+]},
+{anchor:'cvg224',items:[{z:'                if (OPB_1[N-1:3] != {(N-3){1\'b0}})',f:'tdesign.v',l:'263',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if (OPB_1[N-1:3] != {(N-3){1\'b0}})',f:'tdesign.v',l:'263',h:'5',c:'g'}
+,{cr:'c',t:'T',z:'                else if (OPB_1[2:0] == 3\'b000) ',f:'tdesign.v',l:'268',h:'24',c:'g'}
+,{cr:'c',t:'E',z:'                else ',f:'tdesign.v',l:'272',h:'28',c:'g'}
+]},
+{anchor:'cvg225',items:[{z:'                if (OPB_1[N-1:3] != {(N-3){1\'b0}}) ',f:'tdesign.v',l:'280',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if (OPB_1[N-1:3] != {(N-3){1\'b0}}) ',f:'tdesign.v',l:'280',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                else if (OPB_1[2:0] == 3\'b000) ',f:'tdesign.v',l:'285',h:'26',c:'g'}
+,{cr:'c',t:'E',z:'                else ',f:'tdesign.v',l:'289',h:'28',c:'g'}
+]}],
+b200:[{dummy:0},
+{anchor:'cvg201',items:[{z:'    if (CE) begin',f:'tdesign.v',l:'37',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'    if (CE) begin',f:'tdesign.v',l:'37',h:'470',c:'g'}
+,{cr:'c',t:'A',z:'    if (CE) begin',f:'tdesign.v',l:'37',h:'2',c:'g'}
+]},
+{anchor:'cvg202',items:[{z:'        if (INP_VALID[0]) OPA_1 = OPA;',f:'tdesign.v',l:'38',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (INP_VALID[0]) OPA_1 = OPA;',f:'tdesign.v',l:'38',h:'256',c:'g'}
+,{cr:'c',t:'A',z:'        if (INP_VALID[0]) OPA_1 = OPA;',f:'tdesign.v',l:'38',h:'214',c:'g'}
+]},
+{anchor:'cvg203',items:[{z:'        if (INP_VALID[1]) OPB_1 = OPB;',f:'tdesign.v',l:'39',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (INP_VALID[1]) OPB_1 = OPB;',f:'tdesign.v',l:'39',h:'188',c:'g'}
+,{cr:'c',t:'A',z:'        if (INP_VALID[1]) OPB_1 = OPB;',f:'tdesign.v',l:'39',h:'282',c:'g'}
+]},
+{anchor:'cvg204',items:[{z:'    if (RST) begin',f:'tdesign.v',l:'45',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'    if (RST) begin',f:'tdesign.v',l:'45',h:'2',c:'g'}
+,{cr:'c',t:'T',z:'    else if (CE) begin',f:'tdesign.v',l:'61',h:'1112',c:'g'}
+,{cr:'c',t:'A',z:'    if (RST) begin',f:'tdesign.v',l:'45',h:'2',c:'g'}
+]},
+{anchor:'cvg205',items:[{z:'        if (CMD == 4\'b1001 && MODE == 1\'b1) begin',f:'tdesign.v',l:'64',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (CMD == 4\'b1001 && MODE == 1\'b1) begin',f:'tdesign.v',l:'64',h:'325',c:'g'}
+,{cr:'c',t:'E',z:'        else begin',f:'tdesign.v',l:'68',h:'787',c:'g'}
+]},
+{anchor:'cvg206',items:[{z:'        if (MODE) begin',f:'tdesign.v',l:'73',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (MODE) begin',f:'tdesign.v',l:'73',h:'885',c:'g'}
+,{cr:'c',t:'E',z:'        else begin',f:'tdesign.v',l:'238',h:'227',c:'g'}
+]},
+{anchor:'cvg207',items:[{z:'            case (CMD)',f:'tdesign.v',l:'82',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                4\'b0000: begin',f:'tdesign.v',l:'84',h:'25',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0001: begin',f:'tdesign.v',l:'92',h:'25',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0010: begin',f:'tdesign.v',l:'100',h:'24',c:'g'}
+,{cr:'c',t:'T',z:'            4\'b0011: begin',f:'tdesign.v',l:'108',h:'33',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0100: begin',f:'tdesign.v',l:'116',h:'21',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0101: begin',f:'tdesign.v',l:'123',h:'30',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0110: begin',f:'tdesign.v',l:'132',h:'20',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0111: begin',f:'tdesign.v',l:'141',h:'20',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1000: begin',f:'tdesign.v',l:'150',h:'30',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1001: begin',f:'tdesign.v',l:'162',h:'325',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1010: begin',f:'tdesign.v',l:'173',h:'121',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1011: begin',f:'tdesign.v',l:'179',h:'107',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1100: begin',f:'tdesign.v',l:'202',h:'102',c:'g'}
+,{cr:'c',t:'T',z:'                default: begin',f:'tdesign.v',l:'225',h:'2',c:'g'}
+]},
+{anchor:'cvg208',items:[{z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'85',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'85',h:'7',c:'g'}
+,{cr:'c',t:'A',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'85',h:'18',c:'g'}
+]},
+{anchor:'cvg209',items:[{z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'93',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'93',h:'6',c:'g'}
+,{cr:'c',t:'A',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'93',h:'19',c:'g'}
+]},
+{anchor:'cvg210',items:[{z:'                if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'101',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'101',h:'6',c:'g'}
+,{cr:'c',t:'A',z:'                if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'101',h:'18',c:'g'}
+]},
+{anchor:'cvg211',items:[{z:'            if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'109',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'109',h:'8',c:'g'}
+,{cr:'c',t:'A',z:'            if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'109',h:'25',c:'g'}
+]},
+{anchor:'cvg212',items:[{z:'                    if ((INP_VALID == 2\'b11)||(INP_VALID == 2\'b01)) begin...',f:'tdesign.v',l:'117',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if ((INP_VALID == 2\'b11)||(INP_VALID == 2\'b01)) begin...',f:'tdesign.v',l:'117',h:'12',c:'g'}
+,{cr:'c',t:'A',z:'                    if ((INP_VALID == 2\'b11)||(INP_VALID == 2\'b01)) begin...',f:'tdesign.v',l:'117',h:'9',c:'g'}
+]},
+{anchor:'cvg213',items:[{z:'                    if ((INP_VALID == 2\'b11) || (INP_VALID == 2\'b01)) beg...',f:'tdesign.v',l:'124',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if ((INP_VALID == 2\'b11) || (INP_VALID == 2\'b01)) beg...',f:'tdesign.v',l:'124',h:'12',c:'g'}
+,{cr:'c',t:'E',z:'                    end else begin',f:'tdesign.v',l:'126',h:'18',c:'g'}
+]},
+{anchor:'cvg214',items:[{z:'                    if (INP_VALID == 2\'b10) begin',f:'tdesign.v',l:'133',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b10) begin',f:'tdesign.v',l:'133',h:'4',c:'g'}
+,{cr:'c',t:'E',z:'                    else begin ',f:'tdesign.v',l:'136',h:'16',c:'g'}
+]},
+{anchor:'cvg215',items:[{z:'                    if (INP_VALID == 2\'b10) begin',f:'tdesign.v',l:'142',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b10) begin',f:'tdesign.v',l:'142',h:'4',c:'g'}
+,{cr:'c',t:'E',z:'                    else begin ',f:'tdesign.v',l:'145',h:'16',c:'g'}
+]},
+{anchor:'cvg216',items:[{z:'                    if (OPA_1 == OPB_1) begin',f:'tdesign.v',l:'152',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (OPA_1 == OPB_1) begin',f:'tdesign.v',l:'152',h:'8',c:'g'}
+,{cr:'c',t:'T',z:'                    end else if (OPA_1 > OPB_1) begin',f:'tdesign.v',l:'154',h:'14',c:'g'}
+,{cr:'c',t:'E',z:'                    end else begin',f:'tdesign.v',l:'156',h:'8',c:'g'}
+]},
+{anchor:'cvg217',items:[{z:'                if (M2active && !mul_abort) begin',f:'tdesign.v',l:'163',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if (M2active && !mul_abort) begin',f:'tdesign.v',l:'163',h:'315',c:'g'}
+,{cr:'c',t:'E',z:'                end else begin',f:'tdesign.v',l:'166',h:'10',c:'g'}
+]},
+{anchor:'cvg218',items:[{z:'                    if (INP_VALID == 2\'b11)',f:'tdesign.v',l:'174',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b11)',f:'tdesign.v',l:'174',h:'52',c:'g'}
+,{cr:'c',t:'A',z:'                    if (INP_VALID == 2\'b11)',f:'tdesign.v',l:'174',h:'69',c:'g'}
+]},
+{anchor:'cvg219',items:[{z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'180',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'180',h:'50',c:'g'}
+,{cr:'c',t:'A',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'180',h:'57',c:'g'}
+]},
+{anchor:'cvg220',items:[{z:'                        if ($signed(OPA_1) > $signed(OPB_1)) ',f:'tdesign.v',l:'187',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                        if ($signed(OPA_1) > $signed(OPB_1)) ',f:'tdesign.v',l:'187',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                        else if ($signed(OPA_1) == $signed(OPB_1)) ',f:'tdesign.v',l:'191',h:'20',c:'g'}
+,{cr:'c',t:'E',z:'                        end else ',f:'tdesign.v',l:'194',h:'20',c:'g'}
+]},
+{anchor:'cvg221',items:[{z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'203',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'203',h:'44',c:'g'}
+,{cr:'c',t:'A',z:'                    if (INP_VALID == 2\'b11) begin',f:'tdesign.v',l:'203',h:'58',c:'g'}
+]},
+{anchor:'cvg222',items:[{z:'                        if ($signed(OPA_1) > $signed(OPB_1)) ',f:'tdesign.v',l:'210',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                        if ($signed(OPA_1) > $signed(OPB_1)) ',f:'tdesign.v',l:'210',h:'24',c:'g'}
+,{cr:'c',t:'T',z:'                        else if ($signed(OPA_1) == $signed(OPB_1)) ',f:'tdesign.v',l:'214',h:'5',c:'g'}
+,{cr:'c',t:'E',z:'                        else ',f:'tdesign.v',l:'218',h:'15',c:'g'}
+]},
+{anchor:'cvg223',items:[{z:'            case (CMD)',f:'tdesign.v',l:'247',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                4\'b0000: RES <= {{N{1\'b0}}, OPA_1 & OPB_1};//AND',f:'tdesign.v',l:'248',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0001: RES <= {{N{1\'b0}}, ~(OPA_1 & OPB_1)};//NAND',f:'tdesign.v',l:'249',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0010: RES <= {{N{1\'b0}}, OPA_1 | OPB_1};//OR',f:'tdesign.v',l:'250',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0011: RES <= {{N{1\'b0}}, ~(OPA_1 | OPB_1)};//NOR',f:'tdesign.v',l:'251',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0100: RES <= {{N{1\'b0}}, OPA_1 ^ OPB_1};//XOR',f:'tdesign.v',l:'252',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0101: RES <= {{N{1\'b0}}, ~(OPA_1 ^ OPB_1)};//XNOR',f:'tdesign.v',l:'253',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0110: RES <= {{N{1\'b0}}, ~OPA_1};//NOT A',f:'tdesign.v',l:'254',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b0111: RES <= {{N{1\'b0}}, ~OPB_1};//NOT B',f:'tdesign.v',l:'255',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1000: RES <= {{N{1\'b0}}, OPA_1 >> 1};//SHIFT RIGHT A',f:'tdesign.v',l:'256',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1001: RES <= {{N{1\'b0}}, OPA_1 << 1};//SHIFT LEFT A',f:'tdesign.v',l:'257',h:'7',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1010: RES <= {{N{1\'b0}}, OPB_1 >> 1};//SHIFT RIGHT B',f:'tdesign.v',l:'258',h:'8',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1011: RES <= {{N{1\'b0}}, OPB_1 << 1};//SHIFT LEFT B',f:'tdesign.v',l:'259',h:'7',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1100:begin',f:'tdesign.v',l:'262',h:'57',c:'g'}
+,{cr:'c',t:'T',z:'                4\'b1101:  begin',f:'tdesign.v',l:'279',h:'57',c:'g'}
+,{cr:'c',t:'T',z:'                default: begin',f:'tdesign.v',l:'295',h:'1',c:'g'}
+]},
+{anchor:'cvg224',items:[{z:'                if (OPB_1[N-1:3] != {(N-3){1\'b0}})',f:'tdesign.v',l:'263',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if (OPB_1[N-1:3] != {(N-3){1\'b0}})',f:'tdesign.v',l:'263',h:'5',c:'g'}
+,{cr:'c',t:'T',z:'                else if (OPB_1[2:0] == 3\'b000) ',f:'tdesign.v',l:'268',h:'24',c:'g'}
+,{cr:'c',t:'E',z:'                else ',f:'tdesign.v',l:'272',h:'28',c:'g'}
+]},
+{anchor:'cvg225',items:[{z:'                if (OPB_1[N-1:3] != {(N-3){1\'b0}}) ',f:'tdesign.v',l:'280',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if (OPB_1[N-1:3] != {(N-3){1\'b0}}) ',f:'tdesign.v',l:'280',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                else if (OPB_1[2:0] == 3\'b000) ',f:'tdesign.v',l:'285',h:'26',c:'g'}
+,{cr:'c',t:'E',z:'                else ',f:'tdesign.v',l:'289',h:'28',c:'g'}
+]}],
+b4:[{dummy:0},
+{anchor:'cvg413',items:[{z:'        if (CE) begin',f:'reference.v',l:'31',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (CE) begin',f:'reference.v',l:'31',h:'530',c:'g'}
+,{cr:'c',t:'A',z:'        if (CE) begin',f:'reference.v',l:'31',h:'2',c:'g'}
+]},
+{anchor:'cvg414',items:[{z:'            if (MODE) begin  // Arithmetic Mode',f:'reference.v',l:'33',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (MODE) begin  // Arithmetic Mode',f:'reference.v',l:'33',h:'372',c:'g'}
+,{cr:'c',t:'E',z:'            else begin  // Logical Mode',f:'reference.v',l:'177',h:'158',c:'g'}
+]},
+{anchor:'cvg415',items:[{z:'                if (INP_VALID == 2\'b00) begin',f:'reference.v',l:'35',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if (INP_VALID == 2\'b00) begin',f:'reference.v',l:'35',h:'74',c:'g'}
+,{cr:'c',t:'T',z:'                else if (INP_VALID == 2\'b11) begin',f:'reference.v',l:'40',h:'76',c:'g'}
+,{cr:'c',t:'T',z:'                else if (INP_VALID == 2\'b01) begin  // only a valid',f:'reference.v',l:'149',h:'74',c:'g'}
+,{cr:'c',t:'T',z:'                else if (INP_VALID == 2\'b10) begin  // only b valid',f:'reference.v',l:'160',h:'74',c:'g'}
+,{cr:'c',t:'E',z:'                else begin',f:'reference.v',l:'171',h:'74',c:'g'}
+]},
+{anchor:'cvg416',items:[{z:'                    case (CMD)',f:'reference.v',l:'41',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                        4\'b0000: begin  // ADD',f:'reference.v',l:'43',h:'4',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0001: begin  // SUB',f:'reference.v',l:'48',h:'4',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0010: begin  // ADD_CIN',f:'reference.v',l:'53',h:'4',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0011: begin  // SUB_CIN',f:'reference.v',l:'58',h:'6',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0100: RES = OPA + 8\'d1;  // INC_A',f:'reference.v',l:'63',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0101: RES = OPA - 8\'d1;  // DEC_A',f:'reference.v',l:'64',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0110: RES = OPB + 8\'d1;  // INC_B',f:'reference.v',l:'65',h:'2',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0111: RES = OPB - 8\'d1;  // DEC_B',f:'reference.v',l:'66',h:'2',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1000: begin  // CMP',f:'reference.v',l:'68',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'d9: begin  // A+1 B+1 nA * nB',f:'reference.v',l:'86',h:'13',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'d10: begin  // A<<1 nA * B',f:'reference.v',l:'91',h:'11',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'d11: begin  // A n B signed A+B',f:'reference.v',l:'95',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'d12: begin  // A n B signed A-B',f:'reference.v',l:'118',h:'9',c:'g'}
+,{cr:'c',t:'T',z:'                        default: begin',f:'reference.v',l:'141',h:'2',c:'g'}
+]},
+{anchor:'cvg417',items:[{z:'                            if (OPA == OPB) begin',f:'reference.v',l:'69',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                            if (OPA == OPB) begin',f:'reference.v',l:'69',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                            else if (OPA > OPB) begin',f:'reference.v',l:'74',h:'1',c:'g'}
+,{cr:'c',t:'E',z:'                            else begin',f:'reference.v',l:'79',h:'1',c:'g'}
+]},
+{anchor:'cvg418',items:[{z:'                                if (OPA == OPB) begin',f:'reference.v',l:'100',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                                if (OPA == OPB) begin',f:'reference.v',l:'100',h:'4',c:'g'}
+,{cr:'c',t:'T',z:'                                else if (OPA > OPB) begin',f:'reference.v',l:'105',h:'4',c:'g'}
+,{cr:'c',t:'E',z:'                                else begin',f:'reference.v',l:'110',h:'2',c:'g'}
+]},
+{anchor:'cvg419',items:[{z:'                                if (OPA == OPB) begin',f:'reference.v',l:'123',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                                if (OPA == OPB) begin',f:'reference.v',l:'123',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                else if (OPA > OPB) begin',f:'reference.v',l:'128',h:'4',c:'g'}
+,{cr:'c',t:'E',z:'                                else begin',f:'reference.v',l:'133',h:'4',c:'g'}
+]},
+{anchor:'cvg420',items:[{z:'                    case (CMD)',f:'reference.v',l:'150',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                        4\'b0100: RES = OPA + 1;  // INC_A',f:'reference.v',l:'151',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0101: RES = OPA - 1;  // DEC_A',f:'reference.v',l:'152',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                        default: begin',f:'reference.v',l:'153',h:'68',c:'g'}
+]},
+{anchor:'cvg421',items:[{z:'                    case (CMD)',f:'reference.v',l:'161',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                        4\'b0110: RES = OPB + 1;  // INC_B',f:'reference.v',l:'162',h:'2',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0111: RES = OPB - 1;  // DEC_B',f:'reference.v',l:'163',h:'2',c:'g'}
+,{cr:'c',t:'T',z:'                        default: begin',f:'reference.v',l:'164',h:'70',c:'g'}
+]},
+{anchor:'cvg422',items:[{z:'                if (INP_VALID == 2\'b00) begin',f:'reference.v',l:'179',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if (INP_VALID == 2\'b00) begin',f:'reference.v',l:'179',h:'31',c:'g'}
+,{cr:'c',t:'T',z:'                else if (INP_VALID == 2\'b11) begin',f:'reference.v',l:'184',h:'34',c:'g'}
+,{cr:'c',t:'T',z:'                else if (INP_VALID == 2\'b01) begin  // only a valid',f:'reference.v',l:'238',h:'31',c:'g'}
+,{cr:'c',t:'T',z:'                else if (INP_VALID == 2\'b10) begin  // only b valid',f:'reference.v',l:'250',h:'31',c:'g'}
+,{cr:'c',t:'E',z:'                else begin',f:'reference.v',l:'262',h:'31',c:'g'}
+]},
+{anchor:'cvg423',items:[{z:'                    case (CMD)',f:'reference.v',l:'185',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                        4\'b0000: RES = OPA & OPB;       // AND',f:'reference.v',l:'187',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0001: RES = ~(OPA & OPB);    // NAND',f:'reference.v',l:'188',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0010: RES = OPA | OPB;       // OR',f:'reference.v',l:'189',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0011: RES = ~(OPA | OPB);    // NOR',f:'reference.v',l:'190',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0100: RES = OPA ^ OPB;       // XOR',f:'reference.v',l:'191',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0101: RES = ~(OPA ^ OPB);    // XNOR',f:'reference.v',l:'192',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0110: RES = ~OPA;            // NOT_A',f:'reference.v',l:'193',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0111: RES = ~OPB;            // NOT_B',f:'reference.v',l:'194',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1000: RES = OPA >> 1;        // SHR1_A',f:'reference.v',l:'195',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1001: RES = OPA << 1;        // SHL1_A',f:'reference.v',l:'196',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1010: RES = OPB >> 1;        // SHR1_B',f:'reference.v',l:'197',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1011: RES = OPB << 1;        // SHL1_B',f:'reference.v',l:'198',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1100: begin  // ROL_A_B',f:'reference.v',l:'200',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1101: begin  // ROR_A_B',f:'reference.v',l:'215',h:'9',c:'g'}
+,{cr:'c',t:'T',z:'                        default: begin',f:'reference.v',l:'230',h:'1',c:'g'}
+]},
+{anchor:'cvg424',items:[{z:'                            case (OPB[2:0])',f:'reference.v',l:'201',c:'Y',p:'88.88'}
+,{cr:'c',t:'T',z:'                                \'b000: RES[7:0] = OPA;',f:'reference.v',l:'202',h:'2',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b001: RES[7:0] = {OPA[6:0], OPA[7]};',f:'reference.v',l:'203',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b010: RES[7:0] = {OPA[5:0], OPA[7:6]};',f:'reference.v',l:'204',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b011: RES[7:0] = {OPA[4:0], OPA[7:5]};',f:'reference.v',l:'205',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b100: RES[7:0] = {OPA[3:0], OPA[7:4]};',f:'reference.v',l:'206',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b101: RES[7:0] = {OPA[2:0], OPA[7:3]};',f:'reference.v',l:'207',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b110: RES[7:0] = {OPA[1:0], OPA[7:2]};',f:'reference.v',l:'208',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b111: RES[7:0] = {OPA[0], OPA[7:1]};',f:'reference.v',l:'209',h:'2',c:'g'}
+,{cr:'m',t:'T',z:'                                default: RES[7:0] = 0;',f:'reference.v',l:'210',h:'0',c:'r'}
+]},
+{anchor:'cvg425',items:[{z:'                            ERR = (OPB[7:4]) ? 1 : 0;',f:'reference.v',l:'212',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                            ERR = (OPB[7:4]) ? 1 : 0;',f:'reference.v',l:'212',h:'2',c:'g'}
+,{cr:'c',t:'E',z:'                            ERR = (OPB[7:4]) ? 1 : 0;',f:'reference.v',l:'212',h:'8',c:'g'}
+]},
+{anchor:'cvg426',items:[{z:'                            case (OPB[2:0])',f:'reference.v',l:'216',c:'Y',p:'88.88'}
+,{cr:'c',t:'T',z:'                                \'b000: RES[7:0] = OPA;',f:'reference.v',l:'217',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b001: RES[7:0] = {OPA[0], OPA[7:1]};',f:'reference.v',l:'218',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b010: RES[7:0] = {OPA[1:0], OPA[7:2]};',f:'reference.v',l:'219',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b011: RES[7:0] = {OPA[2:0], OPA[7:3]};',f:'reference.v',l:'220',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b100: RES[7:0] = {OPA[3:0], OPA[7:4]};',f:'reference.v',l:'221',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b101: RES[7:0] = {OPA[4:0], OPA[7:5]};',f:'reference.v',l:'222',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b110: RES[7:0] = {OPA[5:0], OPA[7:6]};',f:'reference.v',l:'223',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b111: RES[7:0] = {OPA[6:0], OPA[7:7]};',f:'reference.v',l:'224',h:'2',c:'g'}
+,{cr:'m',t:'T',z:'                                default: RES[7:0] = 0;',f:'reference.v',l:'225',h:'0',c:'r'}
+]},
+{anchor:'cvg427',items:[{z:'                            ERR = (OPB[7:4]) ? 1 : 0;',f:'reference.v',l:'227',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                            ERR = (OPB[7:4]) ? 1 : 0;',f:'reference.v',l:'227',h:'1',c:'g'}
+,{cr:'c',t:'E',z:'                            ERR = (OPB[7:4]) ? 1 : 0;',f:'reference.v',l:'227',h:'8',c:'g'}
+]},
+{anchor:'cvg428',items:[{z:'                    case (CMD)',f:'reference.v',l:'239',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                        4\'b0110: RES[7:0] = ~OPA;',f:'reference.v',l:'240',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1000: RES[7:0] = OPA >> 1;',f:'reference.v',l:'241',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1001: RES[7:0] = OPA << 1;',f:'reference.v',l:'242',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        default: begin',f:'reference.v',l:'243',h:'28',c:'g'}
+]},
+{anchor:'cvg429',items:[{z:'                    case (CMD)',f:'reference.v',l:'251',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                        4\'b0111: RES = {8\'b0, ~OPB};',f:'reference.v',l:'252',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1010: RES = {8\'b0, OPB >> 1};',f:'reference.v',l:'253',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1011: RES = {8\'b0, OPB << 1};',f:'reference.v',l:'254',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        default: begin',f:'reference.v',l:'255',h:'28',c:'g'}
+]}],
+b412:[{dummy:0},
+{anchor:'cvg413',items:[{z:'        if (CE) begin',f:'reference.v',l:'31',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (CE) begin',f:'reference.v',l:'31',h:'530',c:'g'}
+,{cr:'c',t:'A',z:'        if (CE) begin',f:'reference.v',l:'31',h:'2',c:'g'}
+]},
+{anchor:'cvg414',items:[{z:'            if (MODE) begin  // Arithmetic Mode',f:'reference.v',l:'33',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (MODE) begin  // Arithmetic Mode',f:'reference.v',l:'33',h:'372',c:'g'}
+,{cr:'c',t:'E',z:'            else begin  // Logical Mode',f:'reference.v',l:'177',h:'158',c:'g'}
+]},
+{anchor:'cvg415',items:[{z:'                if (INP_VALID == 2\'b00) begin',f:'reference.v',l:'35',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if (INP_VALID == 2\'b00) begin',f:'reference.v',l:'35',h:'74',c:'g'}
+,{cr:'c',t:'T',z:'                else if (INP_VALID == 2\'b11) begin',f:'reference.v',l:'40',h:'76',c:'g'}
+,{cr:'c',t:'T',z:'                else if (INP_VALID == 2\'b01) begin  // only a valid',f:'reference.v',l:'149',h:'74',c:'g'}
+,{cr:'c',t:'T',z:'                else if (INP_VALID == 2\'b10) begin  // only b valid',f:'reference.v',l:'160',h:'74',c:'g'}
+,{cr:'c',t:'E',z:'                else begin',f:'reference.v',l:'171',h:'74',c:'g'}
+]},
+{anchor:'cvg416',items:[{z:'                    case (CMD)',f:'reference.v',l:'41',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                        4\'b0000: begin  // ADD',f:'reference.v',l:'43',h:'4',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0001: begin  // SUB',f:'reference.v',l:'48',h:'4',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0010: begin  // ADD_CIN',f:'reference.v',l:'53',h:'4',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0011: begin  // SUB_CIN',f:'reference.v',l:'58',h:'6',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0100: RES = OPA + 8\'d1;  // INC_A',f:'reference.v',l:'63',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0101: RES = OPA - 8\'d1;  // DEC_A',f:'reference.v',l:'64',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0110: RES = OPB + 8\'d1;  // INC_B',f:'reference.v',l:'65',h:'2',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0111: RES = OPB - 8\'d1;  // DEC_B',f:'reference.v',l:'66',h:'2',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1000: begin  // CMP',f:'reference.v',l:'68',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'d9: begin  // A+1 B+1 nA * nB',f:'reference.v',l:'86',h:'13',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'d10: begin  // A<<1 nA * B',f:'reference.v',l:'91',h:'11',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'d11: begin  // A n B signed A+B',f:'reference.v',l:'95',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'d12: begin  // A n B signed A-B',f:'reference.v',l:'118',h:'9',c:'g'}
+,{cr:'c',t:'T',z:'                        default: begin',f:'reference.v',l:'141',h:'2',c:'g'}
+]},
+{anchor:'cvg417',items:[{z:'                            if (OPA == OPB) begin',f:'reference.v',l:'69',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                            if (OPA == OPB) begin',f:'reference.v',l:'69',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                            else if (OPA > OPB) begin',f:'reference.v',l:'74',h:'1',c:'g'}
+,{cr:'c',t:'E',z:'                            else begin',f:'reference.v',l:'79',h:'1',c:'g'}
+]},
+{anchor:'cvg418',items:[{z:'                                if (OPA == OPB) begin',f:'reference.v',l:'100',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                                if (OPA == OPB) begin',f:'reference.v',l:'100',h:'4',c:'g'}
+,{cr:'c',t:'T',z:'                                else if (OPA > OPB) begin',f:'reference.v',l:'105',h:'4',c:'g'}
+,{cr:'c',t:'E',z:'                                else begin',f:'reference.v',l:'110',h:'2',c:'g'}
+]},
+{anchor:'cvg419',items:[{z:'                                if (OPA == OPB) begin',f:'reference.v',l:'123',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                                if (OPA == OPB) begin',f:'reference.v',l:'123',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                else if (OPA > OPB) begin',f:'reference.v',l:'128',h:'4',c:'g'}
+,{cr:'c',t:'E',z:'                                else begin',f:'reference.v',l:'133',h:'4',c:'g'}
+]},
+{anchor:'cvg420',items:[{z:'                    case (CMD)',f:'reference.v',l:'150',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                        4\'b0100: RES = OPA + 1;  // INC_A',f:'reference.v',l:'151',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0101: RES = OPA - 1;  // DEC_A',f:'reference.v',l:'152',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                        default: begin',f:'reference.v',l:'153',h:'68',c:'g'}
+]},
+{anchor:'cvg421',items:[{z:'                    case (CMD)',f:'reference.v',l:'161',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                        4\'b0110: RES = OPB + 1;  // INC_B',f:'reference.v',l:'162',h:'2',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0111: RES = OPB - 1;  // DEC_B',f:'reference.v',l:'163',h:'2',c:'g'}
+,{cr:'c',t:'T',z:'                        default: begin',f:'reference.v',l:'164',h:'70',c:'g'}
+]},
+{anchor:'cvg422',items:[{z:'                if (INP_VALID == 2\'b00) begin',f:'reference.v',l:'179',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if (INP_VALID == 2\'b00) begin',f:'reference.v',l:'179',h:'31',c:'g'}
+,{cr:'c',t:'T',z:'                else if (INP_VALID == 2\'b11) begin',f:'reference.v',l:'184',h:'34',c:'g'}
+,{cr:'c',t:'T',z:'                else if (INP_VALID == 2\'b01) begin  // only a valid',f:'reference.v',l:'238',h:'31',c:'g'}
+,{cr:'c',t:'T',z:'                else if (INP_VALID == 2\'b10) begin  // only b valid',f:'reference.v',l:'250',h:'31',c:'g'}
+,{cr:'c',t:'E',z:'                else begin',f:'reference.v',l:'262',h:'31',c:'g'}
+]},
+{anchor:'cvg423',items:[{z:'                    case (CMD)',f:'reference.v',l:'185',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                        4\'b0000: RES = OPA & OPB;       // AND',f:'reference.v',l:'187',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0001: RES = ~(OPA & OPB);    // NAND',f:'reference.v',l:'188',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0010: RES = OPA | OPB;       // OR',f:'reference.v',l:'189',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0011: RES = ~(OPA | OPB);    // NOR',f:'reference.v',l:'190',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0100: RES = OPA ^ OPB;       // XOR',f:'reference.v',l:'191',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0101: RES = ~(OPA ^ OPB);    // XNOR',f:'reference.v',l:'192',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0110: RES = ~OPA;            // NOT_A',f:'reference.v',l:'193',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b0111: RES = ~OPB;            // NOT_B',f:'reference.v',l:'194',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1000: RES = OPA >> 1;        // SHR1_A',f:'reference.v',l:'195',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1001: RES = OPA << 1;        // SHL1_A',f:'reference.v',l:'196',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1010: RES = OPB >> 1;        // SHR1_B',f:'reference.v',l:'197',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1011: RES = OPB << 1;        // SHL1_B',f:'reference.v',l:'198',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1100: begin  // ROL_A_B',f:'reference.v',l:'200',h:'10',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1101: begin  // ROR_A_B',f:'reference.v',l:'215',h:'9',c:'g'}
+,{cr:'c',t:'T',z:'                        default: begin',f:'reference.v',l:'230',h:'1',c:'g'}
+]},
+{anchor:'cvg424',items:[{z:'                            case (OPB[2:0])',f:'reference.v',l:'201',c:'Y',p:'88.88'}
+,{cr:'c',t:'T',z:'                                \'b000: RES[7:0] = OPA;',f:'reference.v',l:'202',h:'2',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b001: RES[7:0] = {OPA[6:0], OPA[7]};',f:'reference.v',l:'203',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b010: RES[7:0] = {OPA[5:0], OPA[7:6]};',f:'reference.v',l:'204',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b011: RES[7:0] = {OPA[4:0], OPA[7:5]};',f:'reference.v',l:'205',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b100: RES[7:0] = {OPA[3:0], OPA[7:4]};',f:'reference.v',l:'206',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b101: RES[7:0] = {OPA[2:0], OPA[7:3]};',f:'reference.v',l:'207',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b110: RES[7:0] = {OPA[1:0], OPA[7:2]};',f:'reference.v',l:'208',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b111: RES[7:0] = {OPA[0], OPA[7:1]};',f:'reference.v',l:'209',h:'2',c:'g'}
+,{cr:'m',t:'T',z:'                                default: RES[7:0] = 0;',f:'reference.v',l:'210',h:'0',c:'r'}
+]},
+{anchor:'cvg425',items:[{z:'                            ERR = (OPB[7:4]) ? 1 : 0;',f:'reference.v',l:'212',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                            ERR = (OPB[7:4]) ? 1 : 0;',f:'reference.v',l:'212',h:'2',c:'g'}
+,{cr:'c',t:'E',z:'                            ERR = (OPB[7:4]) ? 1 : 0;',f:'reference.v',l:'212',h:'8',c:'g'}
+]},
+{anchor:'cvg426',items:[{z:'                            case (OPB[2:0])',f:'reference.v',l:'216',c:'Y',p:'88.88'}
+,{cr:'c',t:'T',z:'                                \'b000: RES[7:0] = OPA;',f:'reference.v',l:'217',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b001: RES[7:0] = {OPA[0], OPA[7:1]};',f:'reference.v',l:'218',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b010: RES[7:0] = {OPA[1:0], OPA[7:2]};',f:'reference.v',l:'219',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b011: RES[7:0] = {OPA[2:0], OPA[7:3]};',f:'reference.v',l:'220',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b100: RES[7:0] = {OPA[3:0], OPA[7:4]};',f:'reference.v',l:'221',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b101: RES[7:0] = {OPA[4:0], OPA[7:5]};',f:'reference.v',l:'222',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b110: RES[7:0] = {OPA[5:0], OPA[7:6]};',f:'reference.v',l:'223',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                                \'b111: RES[7:0] = {OPA[6:0], OPA[7:7]};',f:'reference.v',l:'224',h:'2',c:'g'}
+,{cr:'m',t:'T',z:'                                default: RES[7:0] = 0;',f:'reference.v',l:'225',h:'0',c:'r'}
+]},
+{anchor:'cvg427',items:[{z:'                            ERR = (OPB[7:4]) ? 1 : 0;',f:'reference.v',l:'227',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                            ERR = (OPB[7:4]) ? 1 : 0;',f:'reference.v',l:'227',h:'1',c:'g'}
+,{cr:'c',t:'E',z:'                            ERR = (OPB[7:4]) ? 1 : 0;',f:'reference.v',l:'227',h:'8',c:'g'}
+]},
+{anchor:'cvg428',items:[{z:'                    case (CMD)',f:'reference.v',l:'239',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                        4\'b0110: RES[7:0] = ~OPA;',f:'reference.v',l:'240',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1000: RES[7:0] = OPA >> 1;',f:'reference.v',l:'241',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1001: RES[7:0] = OPA << 1;',f:'reference.v',l:'242',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        default: begin',f:'reference.v',l:'243',h:'28',c:'g'}
+]},
+{anchor:'cvg429',items:[{z:'                    case (CMD)',f:'reference.v',l:'251',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'                        4\'b0111: RES = {8\'b0, ~OPB};',f:'reference.v',l:'252',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1010: RES = {8\'b0, OPB >> 1};',f:'reference.v',l:'253',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        4\'b1011: RES = {8\'b0, OPB << 1};',f:'reference.v',l:'254',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'                        default: begin',f:'reference.v',l:'255',h:'28',c:'g'}
+]}],
+b5:[{dummy:0},
+{anchor:'cvg6',items:[{z:'        if (fail_count == 0)',f:'tb.v',l:'203',c:'Y',p:'50.00'}
+,{cr:'m',t:'I',z:'        if (fail_count == 0)',f:'tb.v',l:'203',h:'0',c:'r'}
+,{cr:'c',t:'E',z:'        else',f:'tb.v',l:'205',h:'1',c:'g'}
+]}],
+b703:[{dummy:0},
+{anchor:'cvg704',items:[{z:'        if (MODE == 1 && (cmd == 4\'d9 || cmd == 4\'d10 || cmd == 4\'d11 || ...',f:'tb.v',l:'357',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (MODE == 1 && (cmd == 4\'d9 || cmd == 4\'d10 || cmd == 4\'d11 || ...',f:'tb.v',l:'357',h:'215',c:'g'}
+,{cr:'c',t:'A',z:'        if (MODE == 1 && (cmd == 4\'d9 || cmd == 4\'d10 || cmd == 4\'d11 || ...',f:'tb.v',l:'357',h:'280',c:'g'}
+]},
+{anchor:'cvg705',items:[{z:'        if (cmp) begin',f:'tb.v',l:'369',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (cmp) begin',f:'tb.v',l:'369',h:'104',c:'g'}
+,{cr:'c',t:'E',z:'        end else begin',f:'tb.v',l:'372',h:'391',c:'g'}
+]}],
+b708:[{dummy:0},
+{anchor:'cvg709',items:[{z:'            if (RES_dut !== RES_ref[15:0]) compare__outputs = 0;',f:'tb.v',l:'385',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (RES_dut !== RES_ref[15:0]) compare__outputs = 0;',f:'tb.v',l:'385',h:'117',c:'g'}
+,{cr:'c',t:'A',z:'            if (RES_dut !== RES_ref[15:0]) compare__outputs = 0;',f:'tb.v',l:'385',h:'378',c:'g'}
+]},
+{anchor:'cvg710',items:[{z:'            if (COUT_dut  !== COUT_ref)    compare__outputs = 0;',f:'tb.v',l:'386',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (COUT_dut  !== COUT_ref)    compare__outputs = 0;',f:'tb.v',l:'386',h:'6',c:'g'}
+,{cr:'c',t:'A',z:'            if (COUT_dut  !== COUT_ref)    compare__outputs = 0;',f:'tb.v',l:'386',h:'489',c:'g'}
+]},
+{anchor:'cvg711',items:[{z:'            if (OFLOW_dut !== OFLOW_ref)   compare__outputs = 0;',f:'tb.v',l:'387',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (OFLOW_dut !== OFLOW_ref)   compare__outputs = 0;',f:'tb.v',l:'387',h:'2',c:'g'}
+,{cr:'c',t:'A',z:'            if (OFLOW_dut !== OFLOW_ref)   compare__outputs = 0;',f:'tb.v',l:'387',h:'493',c:'g'}
+]},
+{anchor:'cvg712',items:[{z:'            if (G_dut     !== G_ref)       compare__outputs = 0;',f:'tb.v',l:'388',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (G_dut     !== G_ref)       compare__outputs = 0;',f:'tb.v',l:'388',h:'15',c:'g'}
+,{cr:'c',t:'A',z:'            if (G_dut     !== G_ref)       compare__outputs = 0;',f:'tb.v',l:'388',h:'480',c:'g'}
+]},
+{anchor:'cvg713',items:[{z:'            if (E_dut     !== E_ref)       compare__outputs = 0;',f:'tb.v',l:'389',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (E_dut     !== E_ref)       compare__outputs = 0;',f:'tb.v',l:'389',h:'3',c:'g'}
+,{cr:'c',t:'A',z:'            if (E_dut     !== E_ref)       compare__outputs = 0;',f:'tb.v',l:'389',h:'492',c:'g'}
+]},
+{anchor:'cvg714',items:[{z:'            if (L_dut     !== L_ref)       compare__outputs = 0;',f:'tb.v',l:'390',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (L_dut     !== L_ref)       compare__outputs = 0;',f:'tb.v',l:'390',h:'12',c:'g'}
+,{cr:'c',t:'A',z:'            if (L_dut     !== L_ref)       compare__outputs = 0;',f:'tb.v',l:'390',h:'483',c:'g'}
+]},
+{anchor:'cvg715',items:[{z:'            if (ERR_dut   !== ERR_ref)     compare__outputs = 0;',f:'tb.v',l:'391',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (ERR_dut   !== ERR_ref)     compare__outputs = 0;',f:'tb.v',l:'391',h:'361',c:'g'}
+,{cr:'c',t:'A',z:'            if (ERR_dut   !== ERR_ref)     compare__outputs = 0;',f:'tb.v',l:'391',h:'134',c:'g'}
+]}],
+b2:[{dummy:0},
+{anchor:'cvg523',items:[{z:'        if (fail_count == 0)',f:'tb.v',l:'203',c:'Y',p:'50.00'}
+,{cr:'m',t:'I',z:'        if (fail_count == 0)',f:'tb.v',l:'203',h:'0',c:'r'}
+,{cr:'c',t:'E',z:'        else',f:'tb.v',l:'205',h:'1',c:'g'}
+]}],
+dummyEnd:0
+};
+processBranchesData(g_data);
