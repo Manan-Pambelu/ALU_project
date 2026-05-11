@@ -12,7 +12,7 @@ module alu_testbench;
     wire COUT_dut, OFLOW_dut, G_dut, E_dut, L_dut, ERR_dut;
 
     // Reference model signals
-    wire [8:0] RES_ref;
+    wire [15:0] RES_ref;
     wire COUT_ref, OFLOW_ref, G_ref, E_ref, L_ref, ERR_ref;
 
     // Test counters
@@ -360,115 +360,149 @@ module alu_testbench;
             apply_test(8'h00, 8'b10101010, 4'b1010, "SHR1_B");
             apply_test(8'h00, 8'b01010101, 4'b1011, "SHL1_B");
 
-            apply_test(8'hCC, 8'h0B, 4'b1100, "ROL_A_B");
-            apply_test(8'hCC, 8'h6B, 4'b1100, "ROL_A_B");
+            apply_test(8'hCC, 8'h00, 4'b1100, "ROL_A_B");
+            apply_test(8'hCC, 8'h01, 4'b1100, "ROL_A_B");
+            apply_test(8'hCC, 8'h02, 4'b1100, "ROL_A_B");
+            apply_test(8'hCC, 8'h03, 4'b1100, "ROL_A_B");
+            apply_test(8'hCC, 8'h04, 4'b1100, "ROL_A_B");
+            apply_test(8'hCC, 8'h05, 4'b1100, "ROL_A_B");
+            apply_test(8'hCC, 8'h06, 4'b1100, "ROL_A_B");
+            apply_test(8'hCC, 8'h07, 4'b1100, "ROL_A_B");
+            apply_test(8'hCC, 8'h37, 4'b1100, "ROL_A_B");
+            
 
-            apply_test(8'hCC, 8'h0B, 4'b1101, "ROR_A_B");
-            apply_test(8'hCC, 8'h6B, 4'b1101, "ROR_A_B");
+            apply_test(8'hCC, 8'h00, 4'b1101, "ROR_A_B");
+            apply_test(8'hCC, 8'h01, 4'b1101, "ROR_A_B");
+            apply_test(8'hCC, 8'h02, 4'b1101, "ROR_A_B");
+            apply_test(8'hCC, 8'h03, 4'b1101, "ROR_A_B");
+            apply_test(8'hCC, 8'h04, 4'b1101, "ROR_A_B");
+            apply_test(8'hCC, 8'h05, 4'b1101, "ROR_A_B");
+            apply_test(8'hCC, 8'h06, 4'b1101, "ROR_A_B");
+            apply_test(8'hCC, 8'h07, 4'b1101, "ROR_A_B");
+            apply_test(8'hCC, 8'h37, 4'b1101, "ROR_A_B");
 
         end
     endtask
 
     // Apply test and check
-    task apply_test(
-        input [7:0] a, b,
-        input [3:0] cmd,
-        input [80*8:1] test_name
-    );
+//    task apply_test(
+  //      input [7:0] a, b,
+    //    input [3:0] cmd,
+      //  input [80*8:1] test_name
+    //);
 
-        begin
+      //  begin
 
-            @(posedge CLK);
+        //    @(posedge CLK);
 
-            OPA = a;
-            OPB = b;
-            CMD = cmd;
+          //  OPA = a;
+            //OPB = b;
+            //CMD = cmd;
 
-            @(posedge CLK);
-            @(posedge CLK);
+            //@(posedge CLK);
+            //@(posedge CLK);
 
-            test_count = test_count + 1;
+            //test_count = test_count + 1;
 
-            compare_outputs(cmp);
+            //compare_outputs(cmp);
 
-            if (cmp) begin
+            //if (cmp) begin
 
-                $display("[PASS] %s: OPA=0x%h OPB=0x%h CMD=0x%h",
-                         test_name, a, b, cmd);
+              //  $display("[PASS] %s: OPA=0x%h OPB=0x%h CMD=0x%h",
+                //         test_name, a, b, cmd);
 
-                display_mismatch();
+                //display_mismatch();
 
-                pass_count = pass_count + 1;
+                //pass_count = pass_count + 1;
 
-            end
-            else begin
+            //end
+            //else begin
 
-                $display("[FAIL] %s: OPA=0x%h OPB=0x%h CMD=0x%h",
-                         test_name, a, b, cmd);
+              //  $display("[FAIL] %s: OPA=0x%h OPB=0x%h CMD=0x%h",
+                //         test_name, a, b, cmd);
 
-                display_mismatch();
+                //display_mismatch();
 
-                fail_count = fail_count + 1;
+                //fail_count = fail_count + 1;
 
-            end
-        end
-    endtask
+            //end
+       // end
+    //endtask
+    
+   task apply_test(
+    input [7:0] a, b,
+    input [3:0] cmd,
+    input [80*8:1] test_name
+);
+begin
+    @(posedge CLK);
+
+    OPA = a;
+    OPB = b;
+    CMD = cmd;
+
+    if (MODE && (CMD == 4'd9 || CMD == 4'd10 || CMD == 4'd11 || CMD == 4'd12)) begin
+        @(posedge CLK);
+        @(posedge CLK);
+        @(posedge CLK);
+    end
+    else begin
+        @(posedge CLK);
+    end
+
+    test_count = test_count + 1;
+
+    compare_outputs(cmp);
+
+    if (cmp) begin
+        $display("[PASS] %s", test_name);
+        pass_count = pass_count + 1;
+    end
+    else begin
+        $display("[FAIL] %s", test_name);
+         display_mismatch();
+        fail_count = fail_count + 1;
+    end
+end
+endtask
+
 
     // Compare DUT vs Reference
+
     task compare_outputs;
 
-        output reg compare__outputs;
+    output reg compare__outputs;
 
-        begin
+    begin
+        compare__outputs = 1;
 
-            compare__outputs = 1;
+        // Compare result
+        if (RES_dut !== RES_ref)
+            compare__outputs = 0;
 
-            if (MODE == 4'd1 &&
-               (CMD == 4'd9 || CMD == 4'd10 ||
-                CMD == 4'd11 || CMD == 4'd12)) begin
+        // Compare flags
+        if (COUT_dut !== COUT_ref)
+            compare__outputs = 0;
 
-                @(posedge CLK);
-                @(posedge CLK);
-                @(posedge CLK);
+        if (OFLOW_dut !== OFLOW_ref)
+            compare__outputs = 0;
 
-                if (RES_dut !== RES_ref) begin
-                    if (!((RES_dut === 9'bzzzzzzzzz) &&
-                          (RES_ref === 9'bzzzzzzzzz)))
-                        compare__outputs = 0;
-                end
-            end
+        if (G_dut !== G_ref)
+            compare__outputs = 0;
 
-            else begin
+        if (E_dut !== E_ref)
+            compare__outputs = 0;
 
-                // Compare RES (handle Z values)
-                if (RES_dut !== RES_ref) begin
-                    if (!((RES_dut === 9'bzzzzzzzzz) &&
-                          (RES_ref === 9'bzzzzzzzzz)))
-                        compare__outputs = 0;
-                end
-            end
+        if (L_dut !== L_ref)
+            compare__outputs = 0;
 
-            // Compare flags (handle Z values)
-            if (!compare_bit(COUT_dut, COUT_ref))
-                compare__outputs = 0;
+        if (ERR_dut !== ERR_ref)
+            compare__outputs = 0;
 
-            if (!compare_bit(OFLOW_dut, OFLOW_ref))
-                compare__outputs = 0;
+    end
 
-            if (!compare_bit(G_dut, G_ref))
-                compare__outputs = 0;
+endtask
 
-            if (!compare_bit(E_dut, E_ref))
-                compare__outputs = 0;
-
-            if (!compare_bit(L_dut, L_ref))
-                compare__outputs = 0;
-
-            if (!compare_bit(ERR_dut, ERR_ref))
-                compare__outputs = 0;
-
-        end
-    endtask
 
     // Compare single bit (handle Z)
     function compare_bit;
@@ -480,8 +514,8 @@ module alu_testbench;
             if (dut === ref)
                 compare_bit = 1;
 
-            else if ((dut === 1'bz) && (ref === 1'bz))
-                compare_bit = 1;
+           // else if ((dut === 1'bz) && (ref === 1'bz))
+             //   compare_bit = 1;
 
             else
                 compare_bit = 0;
