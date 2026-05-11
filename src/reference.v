@@ -4,7 +4,7 @@ lu_reference_model(
     input [7:0] OPA, OPB,
     input CIN, MODE,
     input [3:0] CMD,
-    output reg [16:0] RES,
+    output reg [15:0] RES,
     output reg COUT, OFLOW, G, E, L, ERR
 );
 
