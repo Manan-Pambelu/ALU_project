@@ -1,0 +1,10 @@
+QuestaSim vlog 10.6c Compiler 2017.07 Jul 25 2017
+Start time: 20:51:58 on May 10,2026
+vlog "+acc" "+cover" -l log_file.log design.v reference.v tb.v 
+** Error: (vlog-13069) design.v(1): near "1": syntax error, unexpected INTEGER NUMBER.
+** Error: design.v(1): (vlog-13205) Syntax error found in the scope following 'timescale'. Is there a missing '::'?
+-- Compiling module alu_reference_model
+** Error: (vlog-13069) tb.v(1): near "timescale": syntax error, unexpected IDENTIFIER.
+** Error: design.v(1): (vlog-13205) Syntax error found in the scope following 'n'. Is there a missing '::'?
+End time: 20:51:58 on May 10,2026, Elapsed time: 0:00:00
+Errors: 4, Warnings: 0
