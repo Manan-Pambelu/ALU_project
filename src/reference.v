@@ -1,4 +1,4 @@
-lu_reference_model(
+module alu_reference_model(
     input CE,
     input [1:0] INP_VALID,
     input [7:0] OPA, OPB,
