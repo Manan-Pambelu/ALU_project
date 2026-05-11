@@ -19,7 +19,8 @@ module alu_testbench;
 
     reg cmp;
 
-    alu dut #(parameter N=4) (
+    alu
+         dut(
         .OPA(OPA),
         .OPB(OPB),
         .CIN(CIN),
