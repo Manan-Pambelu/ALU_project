@@ -1,4 +1,4 @@
-module alu_reference_model(
+lu_reference_model(
     input CE,
     input [1:0] INP_VALID,
     input [7:0] OPA, OPB,
@@ -8,27 +8,25 @@ module alu_reference_model(
     output reg COUT, OFLOW, G, E, L, ERR
 );
 
-    reg [7:0] OPA_1, OPB_1, OPA_L1;
+    reg [7:0] OPA_1, OPB_1;
 
     // signed reg
     wire signed [7:0] sOPA = OPA;
     wire signed [7:0] sOPB = OPB;
 
-    // signed calculus
+    // signes calculus
     wire signed [7:0] s_add = sOPA + sOPB;
     wire signed [7:0] s_sub = sOPA - sOPB;
 
-    integer i;
-
     always @(*) begin
         // Default values
-        RES   = 16'b0;
-        COUT  = 1'b0;
-        OFLOW = 1'b0;
-        G     = 1'b0;
-        E     = 1'b0;
-        L     = 1'b0;
-        ERR   = 1'b0;
+        RES    = 16'b0;
+        COUT   = 1'b0;
+        OFLOW  = 1'b0;
+        G      = 1'b0;
+        E      = 1'b0;
+        L      = 1'b0;
+        ERR    = 1'b0;
 
         if (CE) begin
 
@@ -92,8 +90,7 @@ module alu_reference_model(
                         end
 
                         4'd10: begin  // A<<1 nA * B
-                            OPA_L1 = OPA << 1;
-                            RES = OPA_L1 * OPB;
+                            RES = (OPA << 1) * OPB;
                         end
 
                         4'd11: begin  // A n B signed A+B
@@ -150,7 +147,7 @@ module alu_reference_model(
                     endcase
                 end
 
-                else if (INP_VALID == 2'b01) begin
+                else if (INP_VALID == 2'b01) begin  // only a valid
                     case (CMD)
                         4'b0100: RES = OPA + 1;  // INC_A
                         4'b0101: RES = OPA - 1;  // DEC_A
@@ -161,7 +158,7 @@ module alu_reference_model(
                     endcase
                 end
 
-                else if (INP_VALID == 2'b10) begin
+                else if (INP_VALID == 2'b10) begin  // only b valid
                     case (CMD)
                         4'b0110: RES = OPB + 1;  // INC_B
                         4'b0111: RES = OPB - 1;  // DEC_B
@@ -202,15 +199,33 @@ module alu_reference_model(
                         4'b1011: RES = OPB << 1;        // SHL1_B
 
                         4'b1100: begin  // ROL_A_B
+                            case (OPB[2:0])
+                                'b000: RES[7:0] = OPA;
+                                'b001: RES[7:0] = {OPA[6:0], OPA[7]};
+                                'b010: RES[7:0] = {OPA[5:0], OPA[7:6]};
+                                'b011: RES[7:0] = {OPA[4:0], OPA[7:5]};
+                                'b100: RES[7:0] = {OPA[3:0], OPA[7:4]};
+                                'b101: RES[7:0] = {OPA[2:0], OPA[7:3]};
+                                'b110: RES[7:0] = {OPA[1:0], OPA[7:2]};
+                                'b111: RES[7:0] = {OPA[0], OPA[7:1]};
+                                default: RES[7:0] = 0;
+                            endcase
                             ERR = (OPB[7:4]) ? 1 : 0;
-                            for (i = 0; i < 8; i = i + 1)
-                                RES[i] = OPA[(i - OPB[2:0] + 8) % 8];
                         end
 
                         4'b1101: begin  // ROR_A_B
+                            case (OPB[2:0])
+                                'b000: RES[7:0] = OPA;
+                                'b001: RES[7:0] = {OPA[0], OPA[7:1]};
+                                'b010: RES[7:0] = {OPA[1:0], OPA[7:2]};
+                                'b011: RES[7:0] = {OPA[2:0], OPA[7:3]};
+                                'b100: RES[7:0] = {OPA[3:0], OPA[7:4]};
+                                'b101: RES[7:0] = {OPA[4:0], OPA[7:5]};
+                                'b110: RES[7:0] = {OPA[5:0], OPA[7:6]};
+                                'b111: RES[7:0] = {OPA[6:0], OPA[7:7]};
+                                default: RES[7:0] = 0;
+                            endcase
                             ERR = (OPB[7:4]) ? 1 : 0;
-                            for (i = 0; i < 8; i = i + 1)
-                                RES[i] = OPA[(i + OPB[2:0]) % 8];
                         end
 
                         default: begin
@@ -221,7 +236,7 @@ module alu_reference_model(
                     endcase
                 end
 
-                else if (INP_VALID == 2'b01) begin
+                else if (INP_VALID == 2'b01) begin  // only a valid
                     case (CMD)
                         4'b0110: RES[7:0] = ~OPA;
                         4'b1000: RES[7:0] = OPA >> 1;
@@ -233,7 +248,7 @@ module alu_reference_model(
                     endcase
                 end
 
-                else if (INP_VALID == 2'b10) begin
+                else if (INP_VALID == 2'b10) begin  // only b valid
                     case (CMD)
                         4'b0111: RES = {8'b0, ~OPB};
                         4'b1010: RES = {8'b0, OPB >> 1};
@@ -254,4 +269,3 @@ module alu_reference_model(
     end
 
 endmodule
-
