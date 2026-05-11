@@ -1,4 +1,4 @@
-mescale 1ns/1ps
+`timescale 1ns/1ps
 
 module alu_testbench;
 
@@ -19,7 +19,7 @@ module alu_testbench;
 
     reg cmp;
 
-    alu dut (
+    alu dut #(parameter N=4) (
         .OPA(OPA),
         .OPB(OPB),
         .CIN(CIN),
