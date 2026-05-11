@@ -69,7 +69,7 @@ module alu_testbench;
     // Test stimulus
     initial begin
 
-        // all 0
+        
         RST = 0;
         CE = 0;
         CIN = 0;
@@ -77,6 +77,7 @@ module alu_testbench;
         OPB = 0;
         MODE = 0;
         CMD = 0;
+        INP_VALID = 2'b00;  
 
         // rst
         @(posedge CLK);
@@ -87,6 +88,7 @@ module alu_testbench;
         OPB = 0;
         MODE = 0;
         CMD = 0;
+        INP_VALID = 2'b00;   
 
         // rst low and clock enable
         @(posedge CLK);
@@ -97,6 +99,7 @@ module alu_testbench;
         OPB = 0;
         MODE = 0;
         CMD = 0;
+        INP_VALID = 2'b11;  
 
         // rst low and clock disable
         @(posedge CLK);
@@ -107,6 +110,7 @@ module alu_testbench;
         OPB = 0;
         MODE = 0;
         CMD = 0;
+        INP_VALID = 2'b11;
 
         // mode 1
         @(posedge CLK);
@@ -117,6 +121,7 @@ module alu_testbench;
         OPB = 1;
         MODE = 1;
         CMD = 0;
+        INP_VALID = 2'b11;
 
         // mode 0
         @(posedge CLK);
@@ -127,6 +132,7 @@ module alu_testbench;
         OPB = 1;
         MODE = 0;
         CMD = 0;
+        INP_VALID = 2'b11;
 
         // cmd invalid arithmetic
         @(posedge CLK);
@@ -137,6 +143,7 @@ module alu_testbench;
         OPB = 1;
         MODE = 1;
         CMD = 4'b1111;
+        INP_VALID = 2'b11;
 
         // cmd invalid logical
         @(posedge CLK);
@@ -147,20 +154,20 @@ module alu_testbench;
         OPB = 1;
         MODE = 0;
         CMD = 4'b1111;
+        INP_VALID = 2'b11;
 
+        
         @(posedge CLK);
-        begin
-            RST = 0;
-            CE = 1;
-            INP_VALID = 2'b11;
-        end
+        RST = 0;
+        CE  = 1;
+        INP_VALID = 2'b11;
 
-        // Release reset
-        @(posedge CLK);
+        @(posedge CLK); 
 
         // Test Arithmetic Operations
         $display("\n=== Testing Arithmetic Operations (MODE=1) ===");
         MODE = 1;
+        INP_VALID = 2'b11;
         test_arithmetic();
 
         // INVALID 01
@@ -273,20 +280,10 @@ module alu_testbench;
 
             // CMP
             apply_test(8'd200, 8'd100, 4'b1000, "CMP (equal)");
-            apply_test(8'd50, 8'd200, 4'b1000, "CMP (greater)");
+            apply_test(8'd50,  8'd200, 4'b1000, "CMP (greater)");
             apply_test(8'd128, 8'd128, 4'b1000, "CMP (less)");
 
             // MUL_AB
-           // apply_test(8'h00, 8'h00, 4'b1001, "MUL_AB");
-            //apply_test(8'hAA, 8'hAA, 4'b1001, "MUL_AB");
-            //apply_test(8'h55, 8'h55, 4'b1001, "MUL_AB");
-            //apply_test(8'h80, 8'hF0, 4'b1001, "MUL_AB");
-            //apply_test(8'hA0, 8'hA0, 4'b1001, "MUL_AB");
-            //apply_test(8'h50, 8'h50, 4'b1001, "MUL_AB");
-            //apply_test(8'h0F, 8'hFF, 4'b1001, "MUL_AB");
-
-
-
             apply_test(8'h00, 8'h00, 4'b1001, "MUL_AB");
             apply_test(8'h01, 8'h01, 4'b1001, "MUL_AB");
             apply_test(8'hFF, 8'h01, 4'b1001, "MUL_AB");
@@ -300,15 +297,14 @@ module alu_testbench;
             apply_test(8'hFF, 8'hFF, 4'b1001, "MUL_AB");
 
             // SHIFT_MUL
-
-            apply_test(8'h01, 8'h01, 4'b1010, "SHIFT_MUL"); 
+            apply_test(8'h01, 8'h01, 4'b1010, "SHIFT_MUL");
             apply_test(8'h03, 8'h01, 4'b1010, "SHIFT_MUL");
-            apply_test(8'h0F, 8'h01, 4'b1010, "SHIFT_MUL"); 
-            apply_test(8'h1F, 8'h01, 4'b1010, "SHIFT_MUL"); 
-            apply_test(8'h3F, 8'h01, 4'b1010, "SHIFT_MUL"); 
-            apply_test(8'h7F, 8'h01, 4'b1010, "SHIFT_MUL"); 
-            apply_test(8'hFF, 8'h01, 4'b1010, "SHIFT_MUL"); 
-            apply_test(8'h00, 8'h01, 4'b1010, "SHIFT_MUL"); 
+            apply_test(8'h0F, 8'h01, 4'b1010, "SHIFT_MUL");
+            apply_test(8'h1F, 8'h01, 4'b1010, "SHIFT_MUL");
+            apply_test(8'h3F, 8'h01, 4'b1010, "SHIFT_MUL");
+            apply_test(8'h7F, 8'h01, 4'b1010, "SHIFT_MUL");
+            apply_test(8'hFF, 8'h01, 4'b1010, "SHIFT_MUL");
+            apply_test(8'h00, 8'h01, 4'b1010, "SHIFT_MUL");
             apply_test(8'hFF, 8'hFE, 4'b1010, "SHIFT_MUL");
             apply_test(8'h5F, 8'h55, 4'b1010, "SHIFT_MUL");
             apply_test(8'hAA, 8'h01, 4'b1010, "SHIFT_MUL");
@@ -317,11 +313,9 @@ module alu_testbench;
             apply_test(8'h10, 8'h20, 4'b1011, "S_ADD");
             apply_test(8'h20, 8'h10, 4'b1011, "S_ADD");
             apply_test(8'h20, 8'h20, 4'b1011, "S_ADD");
-
             apply_test(8'h70, 8'h70, 4'b1011, "S_ADD");
             apply_test(8'hA0, 8'hA0, 4'b1011, "S_ADD");
             apply_test(8'h10, 8'h10, 4'b1011, "S_ADD");
-
             apply_test(8'h70, 8'h90, 4'b1011, "S_ADD");
             apply_test(8'h90, 8'h20, 4'b1011, "S_ADD");
 
@@ -329,12 +323,10 @@ module alu_testbench;
             apply_test(8'h50, 8'h30, 4'b1100, "S_SUB");
             apply_test(8'h30, 8'h50, 4'b1100, "S_SUB");
             apply_test(8'h40, 8'h40, 4'b1100, "S_SUB");
-
             apply_test(8'h70, 8'h90, 4'b1100, "S_SUB");
             apply_test(8'hA0, 8'h70, 4'b1100, "S_SUB");
             apply_test(8'h90, 8'h70, 4'b1100, "S_SUB");
             apply_test(8'h50, 8'h10, 4'b1100, "S_SUB");
-
             apply_test(8'h02, 8'hFF, 4'b1100, "S_SUB");
             apply_test(8'h10, 8'hF0, 4'b1100, "S_SUB");
 
@@ -354,11 +346,10 @@ module alu_testbench;
             apply_test(8'hAA, 8'hAA, 4'b0110, "NOT_A");
             apply_test(8'hAA, 8'hAA, 4'b0111, "NOT_B");
 
-            apply_test(8'b10101010, 8'd0, 4'b1000, "SHR1_A");
-            apply_test(8'b01010101, 8'h00, 4'b1001, "SHL1_A");
-
-            apply_test(8'h00, 8'b10101010, 4'b1010, "SHR1_B");
-            apply_test(8'h00, 8'b01010101, 4'b1011, "SHL1_B");
+            apply_test(8'b10101010, 8'd0,        4'b1000, "SHR1_A");
+            apply_test(8'b01010101, 8'h00,       4'b1001, "SHL1_A");
+            apply_test(8'h00,       8'b10101010, 4'b1010, "SHR1_B");
+            apply_test(8'h00,       8'b01010101, 4'b1011, "SHL1_B");
 
             apply_test(8'hCC, 8'h00, 4'b1100, "ROL_A_B");
             apply_test(8'hCC, 8'h01, 4'b1100, "ROL_A_B");
@@ -369,7 +360,6 @@ module alu_testbench;
             apply_test(8'hCC, 8'h06, 4'b1100, "ROL_A_B");
             apply_test(8'hCC, 8'h07, 4'b1100, "ROL_A_B");
             apply_test(8'hCC, 8'h37, 4'b1100, "ROL_A_B");
-            
 
             apply_test(8'hCC, 8'h00, 4'b1101, "ROR_A_B");
             apply_test(8'hCC, 8'h01, 4'b1101, "ROR_A_B");
@@ -384,158 +374,78 @@ module alu_testbench;
         end
     endtask
 
-    // Apply test and check
-//    task apply_test(
-  //      input [7:0] a, b,
-    //    input [3:0] cmd,
-      //  input [80*8:1] test_name
-    //);
-
-      //  begin
-
-        //    @(posedge CLK);
-
-          //  OPA = a;
-            //OPB = b;
-            //CMD = cmd;
-
-            //@(posedge CLK);
-            //@(posedge CLK);
-
-            //test_count = test_count + 1;
-
-            //compare_outputs(cmp);
-
-            //if (cmp) begin
-
-              //  $display("[PASS] %s: OPA=0x%h OPB=0x%h CMD=0x%h",
-                //         test_name, a, b, cmd);
-
-                //display_mismatch();
-
-                //pass_count = pass_count + 1;
-
-            //end
-            //else begin
-
-              //  $display("[FAIL] %s: OPA=0x%h OPB=0x%h CMD=0x%h",
-                //         test_name, a, b, cmd);
-
-                //display_mismatch();
-
-                //fail_count = fail_count + 1;
-
-            //end
-       // end
-    //endtask
-    
-   task apply_test(
-    input [7:0] a, b,
-    input [3:0] cmd,
-    input [80*8:1] test_name
-);
-begin
-    @(posedge CLK);
-
-    OPA = a;
-    OPB = b;
-    CMD = cmd;
-
-    if (MODE && (CMD == 4'd9 || CMD == 4'd10 || CMD == 4'd11 || CMD == 4'd12)) begin
+   
+    task apply_test(
+        input [7:0] a, b,
+        input [3:0] cmd,
+        input [80*8:1] test_name
+    );
+    begin
         @(posedge CLK);
-        @(posedge CLK);
-        @(posedge CLK);
-    end
-    else begin
-        @(posedge CLK);
-    end
+        #1;                  
+        OPA = a;
+        OPB = b;
+        CMD = cmd;
 
-    test_count = test_count + 1;
+        
+        if (MODE && (CMD == 4'd9 || CMD == 4'd10 || CMD == 4'd11 || CMD == 4'd12)) begin
+            @(posedge CLK); #1;
+            @(posedge CLK); #1;
+            @(posedge CLK); #1;
+        end
 
-    compare_outputs(cmp);
+        @(posedge CLK); #1;  // capture clock — outputs are now stable
 
-    if (cmp) begin
-        $display("[PASS] %s", test_name);
-        pass_count = pass_count + 1;
+        test_count = test_count + 1;
+
+        compare_outputs(cmp);
+
+        if (cmp) begin
+            $display("[PASS] %s", test_name);
+            pass_count = pass_count + 1;
+        end
+        else begin
+            $display("[FAIL] %s", test_name);
+            display_mismatch();
+            fail_count = fail_count + 1;
+        end
     end
-    else begin
-        $display("[FAIL] %s", test_name);
-         display_mismatch();
-        fail_count = fail_count + 1;
-    end
-end
-endtask
-
+    endtask
 
     // Compare DUT vs Reference
-
     task compare_outputs;
+        output reg compare__outputs;
+        begin
+            compare__outputs = 1;
 
-    output reg compare__outputs;
-
-    begin
-        compare__outputs = 1;
-
-        // Compare result
-        if (RES_dut !== RES_ref)
-            compare__outputs = 0;
-
-        // Compare flags
-        if (COUT_dut !== COUT_ref)
-            compare__outputs = 0;
-
-        if (OFLOW_dut !== OFLOW_ref)
-            compare__outputs = 0;
-
-        if (G_dut !== G_ref)
-            compare__outputs = 0;
-
-        if (E_dut !== E_ref)
-            compare__outputs = 0;
-
-        if (L_dut !== L_ref)
-            compare__outputs = 0;
-
-        if (ERR_dut !== ERR_ref)
-            compare__outputs = 0;
-
-    end
-
-endtask
-
+            if (RES_dut  !== RES_ref)   compare__outputs = 0;
+            if (COUT_dut !== COUT_ref)  compare__outputs = 0;
+            if (OFLOW_dut!== OFLOW_ref) compare__outputs = 0;
+            if (G_dut    !== G_ref)     compare__outputs = 0;
+            if (E_dut    !== E_ref)     compare__outputs = 0;
+            if (L_dut    !== L_ref)     compare__outputs = 0;
+            if (ERR_dut  !== ERR_ref)   compare__outputs = 0;
+        end
+    endtask
 
     // Compare single bit (handle Z)
     function compare_bit;
-
         input dut, ref;
-
         begin
-
             if (dut === ref)
                 compare_bit = 1;
-
-           // else if ((dut === 1'bz) && (ref === 1'bz))
-             //   compare_bit = 1;
-
             else
                 compare_bit = 0;
-
         end
     endfunction
 
     // Display mismatch details
     task display_mismatch();
-
         begin
-
             $display("  DUT: RES=0x%h COUT=%b OFLOW=%b G=%b E=%b L=%b ERR=%b",
-                     RES_dut, COUT_dut, OFLOW_dut,
-                     G_dut, E_dut, L_dut, ERR_dut);
-
+                     RES_dut, COUT_dut, OFLOW_dut, G_dut, E_dut, L_dut, ERR_dut);
             $display("  REF: RES=0x%h COUT=%b OFLOW=%b G=%b E=%b L=%b ERR=%b",
-                     RES_ref, COUT_ref, OFLOW_ref,
-                     G_ref, E_ref, L_ref, ERR_ref);
-
+                     RES_ref, COUT_ref, OFLOW_ref, G_ref, E_ref, L_ref, ERR_ref);
         end
     endtask
 
