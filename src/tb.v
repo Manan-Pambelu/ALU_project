@@ -19,7 +19,10 @@ module alu_testbench;
 
     reg cmp;
 
-    alu
+    alu #(
+         .N(8)
+        )
+
          dut(
         .OPA(OPA),
         .OPB(OPB),
@@ -190,7 +193,7 @@ module alu_testbench;
         $display("FAIL: %0d", fail_count);
 
         if (fail_count == 0)
-            $display("\n*** ALL TESTS PASSED ***\n");
+           $display("\n*** ALL TESTS PASSED ***\n");
         else
             $display("\n*** SOME TESTS FAILED ***\n");
 
@@ -243,12 +246,14 @@ module alu_testbench;
             apply_test(8'd50,  8'd200, 4'b1000, "CMP");
             apply_test(8'd128, 8'd128, 4'b1000, "CMP");
 
-            apply_test(8'h00, 8'h00, 4'b1001, "MUL_AB");
-            apply_test(8'h01, 8'h01, 4'b1001, "MUL_AB");
-            apply_test(8'hFF, 8'h01, 4'b1001, "MUL_AB");
-            apply_test(8'h01, 8'hFF, 4'b1001, "MUL_AB");
-            apply_test(8'h0F, 8'h0F, 4'b1001, "MUL_AB");
-            apply_test(8'hF0, 8'h0F, 4'b1001, "MUL_AB");
+            apply_test(8'hFF, 8'hFF, 4'b1001, "MUL_AB");
+            apply_test(8'hFE, 8'hFE, 4'b1001, "MUL_AB");
+            apply_test(8'hFF, 8'hFF, 4'b1001, "MUL_AB");
+            apply_test(8'hFE, 8'hFE, 4'b1001, "MUL_AB");
+            apply_test(8'hFF, 8'hFF, 4'b1001, "MUL_AB");
+            apply_test(8'h01, 8'h05, 4'b1001, "MUL_AB");
+            apply_test(8'h0F, 8'h5F, 4'b1001, "MUL_AB");
+            apply_test(8'hF0, 8'hFE, 4'b1001, "MUL_AB");
             apply_test(8'hAA, 8'h55, 4'b1001, "MUL_AB");
             apply_test(8'h55, 8'hAA, 4'b1001, "MUL_AB");
             apply_test(8'h7F, 8'h7F, 4'b1001, "MUL_AB");
@@ -275,7 +280,9 @@ module alu_testbench;
             apply_test(8'h10, 8'h10, 4'b1011, "S_ADD");
             apply_test(8'h70, 8'h90, 4'b1011, "S_ADD");
             apply_test(8'h90, 8'h20, 4'b1011, "S_ADD");
-
+            apply_test(8'h9F, 8'h20, 4'b1011, "S_ADD");
+            apply_test(8'hF0, 8'h20, 4'b1011, "S_ADD");
+            
             apply_test(8'h50, 8'h30, 4'b1100, "S_SUB");
             apply_test(8'h30, 8'h50, 4'b1100, "S_SUB");
             apply_test(8'h40, 8'h40, 4'b1100, "S_SUB");
@@ -352,10 +359,10 @@ module alu_testbench;
         compare_outputs(cmp);
 
         if (cmp) begin
-            $display("[PASS] %s", test_name);
+            $display("[PASS] %s,POPA %b,POPB %b", test_name,OPA,OPB);
             pass_count = pass_count + 1;
         end else begin
-            $display("[FAIL] %s", test_name);
+            $display("[FAIL] %s,FOPA %b,FOPB %b", test_name,OPA,OPB);
             display_mismatch();
             fail_count = fail_count + 1;
         end
