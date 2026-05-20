@@ -243,7 +243,7 @@ end
                    end
                    end   
                   
-          4'd11	:begin	
+          4'd11	:begin	      //for 4 bit maxis +7 and min is -8
 				if( IN_VALID == 2'b11)
 						begin
 							RES[N-1:0] <= s_add;
